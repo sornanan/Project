@@ -20,9 +20,9 @@ class MovementModel
         $sql = "select * from movement where id_move like '%{$q}%'";
         return DB::select($sql, []);
     }
-    function insert($id_product,$date,$inproduct, $outproduct,$receive,$send,$balance){
-        $sql = "insert into movement (id_product,date,inproduct, outproduct, receive,send,balance) 
-                values ({$id_product},{$date} ,{$inproduct}, {$outproduct}, {$receive},{$send}),{$balance}";
+    function insert($id_product,$inproduct, $outproduct,$receive,$send,$balance){
+        $sql = "insert into movement (id_product,inproduct, outproduct, receive,send,balance) 
+                values ({$id_product} ,{$inproduct}, {$outproduct}, {$receive},{$send},{$balance})";
         DB::insert($sql, []);
     }
 

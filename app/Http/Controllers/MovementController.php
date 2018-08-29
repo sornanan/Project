@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\MovementModel;
 use Illuminate\Http\Request;
+use App\ProductModel;
 
 class MovementController extends Controller
 {
@@ -25,28 +26,32 @@ class MovementController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('movement/create');
-    }
+     * @return \Illuminate\Http\/(
+          */
+         public function create()
+         {
+            $model = new ProductModel();
+            $table_product2 = $model->select();
+            $data = ['table_product2' =>$table_product2];
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
+             return view('movement/create',$data);
+         }
+     
+         /**
+          * Store a newly created resource in storage.
+          *
+          * @param  \Illuminate\Http\Request  $request
+          * @return \Illuminate\Http\Response
+          */
+         public function store(Request $request)
+    {   $id_product = $request->input('id_product');
        $inproduct = $request->input('inproduct');
         $outproduct = $request->input('outproduct');
         $receive = $request->input('receive');
         $send = $request->input('send');
-
+        $balance = 0;
         $model = new MovementModel();
-        $model->insert($inproduct, $outproduct, $receive, $send);
+        $model->insert($id_product,$inproduct, $outproduct, $receive, $send,$balance);
 
         return redirect('/movement');
 

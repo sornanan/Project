@@ -3,6 +3,18 @@
 <form action="{{ url('/') }}/movement" method="POST">
 	{{ csrf_field() }}
 	{{ method_field('POST') }}
+	{{ count($table_product2 ) }}
+	
+	<div class="line">
+		<strong>รหัสสินค้า : </strong>
+		<select name="id_product">
+			@foreach($table_product2 as $row_product)
+			<option value="{{ $row_product->id_product}}">
+				- {{ $row_product->product}}
+			</option>
+			@endforeach
+		</select>
+	</div>
 	<div class="line">
 		<strong>สินค้าเข้า : </strong>
 		<input type="number" name="inproduct" placeholder="name here..." >
