@@ -65,11 +65,13 @@ class MovementController extends Controller
      */
      public function show($id)
     {
+        //
         $model = new MovementModel();
         $table_movement = $model->select_id($id);
         $data = [
             'table_movement' => $table_movement
         ];
+        //product
         return view('movement/show',$data);
     }
 
@@ -82,10 +84,18 @@ class MovementController extends Controller
      */
     public function edit($id)
     {
+        //movement
        $model = new MovementModel();
         $table_movement = $model->select_id($id);
+        //product
+        $model = new ProductModel();
+        $table_product2 = $model->select();            
+
+        //data
         $data = [
-            'table_movement' => $table_movement
+            'table_movement' => $table_movement,
+            'table_product2' =>$table_product2,
+            'id'=> $id
         ];
         return view('movement/edit',$data);
     }
