@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Product_order_detailModel;
+use App\Purchase_order_detailModel;
 use Illuminate\Http\Request;
 
-class Product_order_detailController extends Controller
+class Purchase_order_detailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class Product_order_detailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product_order_detailModel  $product_order_detailModel
+     * @param  \App\Purchase_order_detailModel  $purchase_order_detailModel
      * @return \Illuminate\Http\Response
      */
-    public function show(Product_order_detailModel $product_order_detailModel)
+    public function show(Purchase_order_detailModel $purchase_order_detailModel)
     {
         //
     }
@@ -52,10 +52,10 @@ class Product_order_detailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product_order_detailModel  $product_order_detailModel
+     * @param  \App\Purchase_order_detailModel  $purchase_order_detailModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product_order_detailModel $product_order_detailModel)
+    public function edit(Purchase_order_detailModel $purchase_order_detailModel)
     {
         //
     }
@@ -64,10 +64,10 @@ class Product_order_detailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product_order_detailModel  $product_order_detailModel
+     * @param  \App\Purchase_order_detailModel  $purchase_order_detailModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product_order_detailModel $product_order_detailModel)
+    public function update(Request $request, Purchase_order_detailModel $purchase_order_detailModel)
     {
         //
     }
@@ -75,10 +75,10 @@ class Product_order_detailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product_order_detailModel  $product_order_detailModel
+     * @param  \App\Purchase_order_detailModel  $purchase_order_detailModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product_order_detailModel $product_order_detailModel)
+    public function destroy(Purchase_order_detailModel $purchase_order_detailModel)
     {
         //
     }

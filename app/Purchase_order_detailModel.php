@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Support\Facades\DB;
 
-class Product_order_detailModel extends Model
+class Purchase_order_detailModel 
 {
     //
 }

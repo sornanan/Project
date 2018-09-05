@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
-class Sell_orderModel extends Model
+class Sell_orderModel 
 {
     //
 }

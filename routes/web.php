@@ -23,7 +23,7 @@ Route::resource('/movement','MovementController');
 Route::resource('/supplier','SupplierController');
 Route::resource('/sell_order','Sell_orderController');
 Route::resource('/sell_order_detail','Sell_order_detailController');
-Route::resource('/product_order','Product_orderController');
-Route::resource('/product_order_detail','Product_order_detailController');
+Route::resource('/purchase_order','Purchase_orderController');
+Route::resource('/purchase_order_detail','Purchase_order_detailController');
 Route::resource('/product','ProductController');
 

@@ -1,28 +1,28 @@
 <h1>Customer List</h1>
 <div class="line">
-	<a href="{{ url('/') }}/customer/create">
+	<a href="{{ url('/') }}/supplier/create">
 New Customer
 </a>
 </div>
 <table border=1>
 <tr>
-		<th>รหัสลูกค้า</th>
-		<th>ชื่อลูกค้า</th>
+		<th>รหัส</th>
+		<th>ชื่อ</th>
 		<th>ที่อยู่</th>
 		<th>email</th>
 		<th>เบอร์โทรศัพท์</th>
 		<th>action</th>
 	</tr>
-	@foreach($table_customer as $row)
+	@foreach($table_supplier as $row)
 	<tr>
-		<td>{{ $row->id_customer }} </td>
-		<td>{{ $row->name_customer }} </td>
+		<td>{{ $row->id_supplier }} </td>
+		<td>{{ $row->name_supplier }} </td>
 		<td>{{ $row->address }}</td>
 		<td>{{ $row->email }}</td>
 		<td>{{ $row->telephone }}</td>
 		<td>
-			<a href="{{ url('/') }}/customer/{{ $row->id_customer }}">View</a>
-			<a href="{{ url('/') }}/customer/{{ $row->id_customer }}/edit">Edit</a>
+			<a href="{{ url('/') }}/supplier/{{ $row->id_supplier }}">View</a>
+			<a href="{{ url('/') }}/supplier/{{ $row->id_supplier }}/edit">Edit</a>
 		</td>
 	</tr>
 	@endforeach

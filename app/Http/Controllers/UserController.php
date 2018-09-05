@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Product_orderModel;
+use App\UserModel;
 use Illuminate\Http\Request;
 
-class Product_orderController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class Product_orderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product_orderModel  $product_orderModel
+     * @param  \App\UserModel  $userModel
      * @return \Illuminate\Http\Response
      */
-    public function show(Product_orderModel $product_orderModel)
+    public function show(UserModel $userModel)
     {
         //
     }
@@ -52,10 +52,10 @@ class Product_orderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product_orderModel  $product_orderModel
+     * @param  \App\UserModel  $userModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product_orderModel $product_orderModel)
+    public function edit(UserModel $userModel)
     {
         //
     }
@@ -64,10 +64,10 @@ class Product_orderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product_orderModel  $product_orderModel
+     * @param  \App\UserModel  $userModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product_orderModel $product_orderModel)
+    public function update(Request $request, UserModel $userModel)
     {
         //
     }
@@ -75,10 +75,10 @@ class Product_orderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product_orderModel  $product_orderModel
+     * @param  \App\UserModel  $userModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product_orderModel $product_orderModel)
+    public function destroy(UserModel $userModel)
     {
         //
     }

@@ -99,13 +99,15 @@ class MovementController extends Controller
      */
     public function update(Request $request, $id_move)
     {
-         $inproduct = $request->input('inproduct');
+         
+        $id_product = $request->input('id_product');
+        $inproduct = $request->input('inproduct');
         $outproduct = $request->input('outproduct');
         $receive = $request->input('receive');
         $send = $request->input('send');
 
         $model = new MovementModel();
-        $model->update($inproduct, $outproduct, $receive, $send,$id_move);
+        $model->update($id_product,$inproduct, $outproduct, $receive, $send,$id_move);
 
         return redirect('/movement');
 
@@ -117,12 +119,12 @@ class MovementController extends Controller
      * @param  \App\CustomerModel  $customerModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_customer)
+    public function destroy($id_move)
     {
-        $model = new CustomerModel();
-        $model->delete($id_customer);
+        $model = new MovementModel();
+        $model->delete($id_move);
 
-        return redirect('/customer');
+        return redirect('/movement');
      }
 
 }

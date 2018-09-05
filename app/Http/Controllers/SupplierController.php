@@ -7,15 +7,19 @@ use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    
+    public function index(Request $request)
     {
-        //
-    }
+        $model = new SupplierModel();
+
+        $q = $request->input('q');
+        $table_supplier = $model->select_search($q);
+
+        $data = [
+            'table_supplier' => $table_supplier,
+            'q' => $q
+        ];
+        return view('supplier/index',$data);    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +28,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        return view('supplier/create');
     }
 
     /**
@@ -35,8 +39,15 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $name_supplier = $request->input('name_supplier');
+        $address = $request->input('address');
+        $email = $request->input('email');
+        $telephone = $request->input('telephone');
+
+        $model = new SupplierModel();
+        $model->insert($name_supplier,$address,$email,$telephone);
+        return redirect('/supplier');
+            }
 
     /**
      * Display the specified resource.
@@ -44,9 +55,14 @@ class SupplierController extends Controller
      * @param  \App\SupplierModel  $supplierModel
      * @return \Illuminate\Http\Response
      */
-    public function show(SupplierModel $supplierModel)
+    public function show($id)
     {
-        //
+        $model = new SupplierModel();
+        $table_supplier = $model->select_id($id);
+        $data = [
+            'table_supplier' => $table_supplier
+        ];
+        return view('supplier/show',$data);
     }
 
     /**
@@ -55,10 +71,14 @@ class SupplierController extends Controller
      * @param  \App\SupplierModel  $supplierModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(SupplierModel $supplierModel)
+    public function edit($id)
     {
-        //
-    }
+        $model = new SupplieromerModel();
+        $table_supplier = $model->select_id($id);
+        $data = [
+            'table_supplier' => $table_supplier
+        ];
+        return view('supplier/edit',$data);    }
 
     /**
      * Update the specified resource in storage.
@@ -67,9 +87,17 @@ class SupplierController extends Controller
      * @param  \App\SupplierModel  $supplierModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SupplierModel $supplierModel)
+    public function update(Request $request,$id_supplier)
     {
-        //
+         $name_supplier = $request->input('name_supplier');
+        $address = $request->input('address');
+        $email = $request->input('email');
+        $telephone = $request->input('telephone');
+
+        $model = new SupplierModel();
+        $model->update($name_supplier, $address, $email, $telephone,$id_supplier);
+
+        return redirect('/supplier');
     }
 
     /**
@@ -78,8 +106,10 @@ class SupplierController extends Controller
      * @param  \App\SupplierModel  $supplierModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SupplierModel $supplierModel)
-    {
-        //
-    }
+    public function destroy ($id_supplier)   
+     {
+        $model = new SupplierModel();
+        $model->delete($id_supplier);
+        return redirect('/supplier');
+            }
 }
