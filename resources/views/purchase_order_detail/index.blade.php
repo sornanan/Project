@@ -1,6 +1,6 @@
 <h1>Customer List</h1>
 <div class="line">
-	<a href="{{ url('/') }}/customer/create">
+	<a href="{{ url('/') }}/sell_order_detail/create">
 New Customer
 </a>
 </div>
@@ -13,16 +13,16 @@ New Customer
 		<th>เบอร์โทรศัพท์</th>
 		<th>action</th>
 	</tr>
-	@foreach($table_customer as $row)
+	@foreach($table_sell_order_detail as $row)
 	<tr>
-		<td>{{ $row->id_customer }} </td>
+		<td>{{ $row->id_orferdetail }} </td>
 		<td>{{ $row->name_customer }} </td>
 		<td>{{ $row->address }}</td>
 		<td>{{ $row->email }}</td>
 		<td>{{ $row->telephone }}</td>
 		<td>
-			<a href="{{ url('/') }}/customer/{{ $row->id_customer }}">View</a>
-			<a href="{{ url('/') }}/customer/{{ $row->id_customer }}/edit">Edit</a>
+			<a href="{{ url('/') }}/sell_order_detail/{{ $row->id_orderdetail }}">View</a>
+			<a href="{{ url('/') }}/sell_order_detail/{{ $row->id_orderdetail }}/edit">Edit</a>
 		</td>
 	</tr>
 	@endforeach

@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Sell__order_detailModel;
+use App\Sell_order_detailModel;
 use Illuminate\Http\Request;
 
 class Sell_order_detailController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    
+    public function index(Request $request)
     {
-        //
+         $model = new Sell_order_detailModel();
+
+        $q = $request->input('q');
+        $table_sell_order_detail = $model->select_search($q);
+
+        $data = [
+            'table_sell_order_detail' => $table_sell_order_detail,
+            'q' => $q
+        ];
+        return view('sell_order_detail/index',$data);
     }
 
     /**

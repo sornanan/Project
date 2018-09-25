@@ -6,7 +6,7 @@
 		{{ method_field('PUT') }}
 		
 		<div class="line">
-			<strong>ชื่อ-นามสกุล : </strong>
+			<strong>ชื่อสินค้า : </strong>
 			<input type="text" name="product" value="{{ $row->product }}" >
 		</div>
 		<div class="line">

@@ -9,7 +9,7 @@
 	</div>
 	<div class="line">
 		<strong>ที่อยู่ : </strong>
-		<input type="number" name="address" placeholder="address here..." >
+		<input type="text" name="address" placeholder="address here..." >
 	</div>
 	<div class="line">
 		<strong>email : </strong>

@@ -73,7 +73,7 @@ class SupplierController extends Controller
      */
     public function edit($id)
     {
-        $model = new SupplieromerModel();
+        $model = new SupplierModel();
         $table_supplier = $model->select_id($id);
         $data = [
             'table_supplier' => $table_supplier

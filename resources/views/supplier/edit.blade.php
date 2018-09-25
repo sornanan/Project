@@ -7,7 +7,7 @@
 		
 		<div class="line">
 			<strong>ชื่อ-นามสกุล : </strong>
-			<input type="text" name="namer" value="{{ $row->name_supplier }}" >
+			<input type="text" name="name" value="{{ $row->name_supplier }}" >
 		</div>
 		<div class="line">
 			<strong>ที่อยู่ : </strong>

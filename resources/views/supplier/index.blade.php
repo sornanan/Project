@@ -1,9 +1,11 @@
-<h1>Customer List</h1>
+<h1>ผู้จัดจำหน่าย List</h1>
 <div class="line">
 	<a href="{{ url('/') }}/supplier/create">
-New Customer
+		
+เพิ่มผู้จัดจำหน่าย
 </a>
 </div>
+<br>
 <table border=1>
 <tr>
 		<th>รหัส</th>

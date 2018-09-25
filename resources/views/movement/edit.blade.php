@@ -20,6 +20,23 @@
 				<option value="{{ $row_product->id_product}}" >
 					 {{ $row_product->product}}
 				</option>
+			</select>
+		<div class="line">
+			<strong>สินค้าเข้า : </strong>
+			<input type="number" name="inproduct" value="{{ $row->inproduct }}"  >
+		</div>
+		<div class="line">
+			<strong>สินค้าออก : </strong>
+			<input type="number" name="outproduct" value="{{ $row->outproduct }}"  >
+		</div>		
+		<div class="line">
+			<strong>ค้างรับ : </strong>
+			<input type="number" name="receive" value="{{ $row->receive }}"  >
+		</div>
+		<div class="line">
+			<strong>ค้างส่ง : </strong>
+			<input type="number" name="send" value="{{ $row->send }}"  >
+		</div>
 				@endif
 			@endforeach
 		</select>

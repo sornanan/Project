@@ -26,13 +26,14 @@ class MovementModel
         DB::insert($sql, []);
     }
 
-    function update($id_product,$inproduct,$outproduct,$receive,$send,$id_move){
+    function update($id_product,$inproduct,$outproduct,$receive,$send,$balance,$id_move){
         $sql = "update movement set 
                 id_product = {$id_product},
                 inproduct = {$inproduct},  
                 outproduct =  {$outproduct},
-                 receive =  {$receive},
+                receive =  {$receive},
                 send = {$send},
+                balance = {$balance},
                 where id_move = {$id_move}";
         DB::update($sql, []);
     }

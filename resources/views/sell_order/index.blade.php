@@ -1,28 +1,32 @@
-<h1>Customer List</h1>
+<h1>ขายสินค้า List</h1>
 <div class="line">
-	<a href="{{ url('/') }}/customer/create">
-New Customer
+	<a href="{{ url('/') }}/sell_order/create">
+New ขายสินค้า
 </a>
 </div>
 <table border=1>
 <tr>
+		<th>รหัสขาย</th>
+		<th>วันที่ขายสินค้า</th>
+		<th>ราคา</th>
+		<th>วันที่รับสินค้าคืน</th>
+		<th>วันที่เสนอราคา</th>
 		<th>รหัสลูกค้า</th>
-		<th>ชื่อลูกค้า</th>
-		<th>ที่อยู่</th>
-		<th>email</th>
-		<th>เบอร์โทรศัพท์</th>
+		<th>รหัสพนักงาน</th>
 		<th>action</th>
 	</tr>
-	@foreach($table_customer as $row)
+	@foreach($table_sell_order as $row)
 	<tr>
-		<td>{{ $row->id_customer }} </td>
-		<td>{{ $row->name_customer }} </td>
-		<td>{{ $row->address }}</td>
-		<td>{{ $row->email }}</td>
-		<td>{{ $row->telephone }}</td>
+		<td>{{ $row->id_sell }} </td>
+		<td>{{ $row->date }} </td>
+		<td>{{ $row->price }}</td>
+		<td>{{ $row->date_sent }}</td>
+		<td>{{ $row->date_quatation }}</td>
+		<td>{{ $row->id_customer}}</td>
+		<td>{{ $row->id_user}}</td>
 		<td>
-			<a href="{{ url('/') }}/customer/{{ $row->id_customer }}">View</a>
-			<a href="{{ url('/') }}/customer/{{ $row->id_customer }}/edit">Edit</a>
+			<a href="{{ url('/') }}/sell_order/{{ $row->id_sell }}">View</a>
+			<a href="{{ url('/') }}/sell_order/{{ $row->id_sell }}/edit">Edit</a>
 		</td>
 	</tr>
 	@endforeach
