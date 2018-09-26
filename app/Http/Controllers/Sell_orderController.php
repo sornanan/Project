@@ -7,14 +7,19 @@ use Illuminate\Http\Request;
 
 class Sell_orderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    
+    public function index(Request $request)
     {
-        //
+       $model = new Sell_orderModel();
+
+        $q = $request->input('q');
+        $table_sell_order = $model->select_search($q);
+
+        $data = [
+            'table_sell_order' => $table_sell_order,
+            'q' => $q
+        ];
+        return view('sell_order/index',$data);
     }
 
     /**
@@ -24,7 +29,7 @@ class Sell_orderController extends Controller
      */
     public function create()
     {
-        //
+        return view('sell_order/create');
     }
 
     /**
@@ -35,7 +40,10 @@ class Sell_orderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sell_order = $request->input('sell_order');
+        $model = new Sell_orderModel();
+        $model ->insert($sell_order);
+        return redirect('/sell_order');
     }
 
     /**

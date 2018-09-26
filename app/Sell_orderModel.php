@@ -21,9 +21,9 @@ class Sell_orderModel
         return DB::select($sql, []);
     }
 
-    function insert($date, $price, $date_sent, $date_quatation,$telephone){
-        $sql = "insert into sell_order (price, address, email,telephone) 
-                values ( '{$price}', '{$address}', '{$email}',{$telephone})";
+    function insert($date, $price, $date_sent, $date_quatation){
+        $sql = "insert into sell_order (date,price,date_sent,date_quatation) 
+                values ( {date},'{$price}', {$date_sent},{$date_quatation})";
         DB::insert($sql, []);
     }
 

@@ -19,7 +19,13 @@ class ProductController extends Controller
         'q'=>$q];
         return view('product/index',$data);
     }
-
+    public function join(){
+        $sell_order = DB::table('sell_order')
+            ->join('customer', 'sell_order.id_sell', '=', 'customer.id_customer')
+            ->join('users', 'sell_order.id_sell', '=', 'users.id')
+            ->select('id_sell', 'Customer.name_customer','Users.name' )
+            ->get();
+    }
     /**
      * Show the form for creating a new resource.
      *
