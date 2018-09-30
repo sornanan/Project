@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Purchase_orderModel;
 use Illuminate\Http\Request;
 use App\SupplierModel;
-Use App\UserModel;
+Use App\User;
 
 class Purchase_orderController extends Controller
 {
@@ -28,17 +28,10 @@ class Purchase_orderController extends Controller
      */
     public function create()
     {
-        $model = new SupplierModel();
-            $table_supplier2 = $model->select();
-            $data = ['table_supplier2' =>$table_supplier2];
-
-        $model = new UserModel();
-            $table_user2 = $model->select();
+        $model = new User();
+        $table_user2 = $model->filable();
             $data = ['table_user2' =>$table_user2];
-
-
-
-             return view('movement/create',$data);
+             return view('purchase_order/create',$data);
     }
 
     /**
@@ -53,6 +46,7 @@ class Purchase_orderController extends Controller
         $id_supplier = $request->input('id_supplier');
         $id_user = $request->input('id_user');
         $model = new Purchase_orderModel();
+
         $model->insert($price,$id_supplier,$id_user);
         return redirect('/purchase_order');
     }
