@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2018 at 10:33 PM
+-- Generation Time: Sep 30, 2018 at 07:37 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -78,7 +78,10 @@ CREATE TABLE `movement` (
 --
 
 INSERT INTO `movement` (`id_move`, `id_product`, `date`, `inproduct`, `outproduct`, `receive`, `send`, `balance`) VALUES
-(1, 55, '2018-08-19 16:32:04', '2', '2', '2', '3', '3');
+(1, 1, '2018-08-19 16:32:04', '2', '2', '2', '30', '0'),
+(2, 1, '2018-09-03 17:35:14', '2', '2', '2', '30', '0'),
+(3, 2, '2018-09-25 10:42:47', '50', '50', '50', '50', '0'),
+(4, 2, '2018-09-27 17:09:31', '50', '50', '50', '50', '0');
 
 -- --------------------------------------------------------
 
@@ -91,6 +94,15 @@ CREATE TABLE `product` (
   `product` varchar(20) NOT NULL COMMENT 'สินค้า'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id_product`, `product`) VALUES
+(1, 'Mouse'),
+(2, 'keyboard'),
+(3, 'ดินสอ');
+
 -- --------------------------------------------------------
 
 --
@@ -99,11 +111,19 @@ CREATE TABLE `product` (
 
 CREATE TABLE `purchase_order` (
   `id_order` int(10) NOT NULL COMMENT 'รหัสซื้อสินค้า',
-  `date` datetime NOT NULL COMMENT 'วันที่',
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'วันที่',
   `price` varchar(20) NOT NULL COMMENT 'ราคา',
   `id_supplier` int(10) NOT NULL COMMENT 'รหัสผู้จัดจำหน่าย',
   `id_user` int(10) NOT NULL COMMENT 'รหัสพนักงาน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `purchase_order`
+--
+
+INSERT INTO `purchase_order` (`id_order`, `date`, `price`, `id_supplier`, `id_user`) VALUES
+(1, '2018-09-03 19:07:52', '20', 1, 1),
+(2, '2018-09-03 19:07:52', '30', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -137,6 +157,13 @@ CREATE TABLE `sell_order` (
   `id_user` int(10) NOT NULL COMMENT 'รหัสพนักงาน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `sell_order`
+--
+
+INSERT INTO `sell_order` (`id_sell`, `date`, `price`, `date_sent`, `date_quatation`, `id_customer`, `id_user`) VALUES
+(1, '2018-09-04 00:00:00', '6000', '2018-09-05 00:00:00', '2018-09-03 00:00:00', 2, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -166,20 +193,13 @@ CREATE TABLE `supplier` (
   `telephone` varchar(10) NOT NULL COMMENT 'เบอร์โทร'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `user`
+-- Dumping data for table `supplier`
 --
 
-CREATE TABLE `user` (
-  `id_user` int(10) NOT NULL COMMENT 'รหัสพนักงาน',
-  `name` varchar(20) NOT NULL COMMENT 'ชื่อ',
-  `telephone` varchar(10) NOT NULL COMMENT 'เบอร์โทรศัพท์',
-  `email` varchar(20) NOT NULL COMMENT 'อีเมล',
-  `user` varchar(20) NOT NULL COMMENT 'ชื่อผู้ใช้',
-  `password` varchar(20) NOT NULL COMMENT 'รหัสผ่าน'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `supplier` (`id_supplier`, `name_supplier`, `address`, `email`, `telephone`) VALUES
+(1, 'นาย ก', 'จ.ปทุมธานี', 'aaa@gmail.com', '888888888'),
+(2, 'wanda', 'www', 'dd@g', '11111');
 
 -- --------------------------------------------------------
 
@@ -194,15 +214,18 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `telephone` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, '1234', 'niking01@hotmail.com', '$2y$10$9SaMcxzYQKUbwdNoihRC.OQGlm1vPT2SWY.2SPQMkqpy0pwZf14Nq', '5SbZRZ8QbYXkdw3CyFozLCPQc1TQJXZMNcETkO9TT7IOtkvveUIxeQ5FtYiH', '2018-06-24 23:10:07', '2018-06-24 23:10:07');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `telephone`) VALUES
+(1, '1234', 'niking01@hotmail.com', '$2y$10$9SaMcxzYQKUbwdNoihRC.OQGlm1vPT2SWY.2SPQMkqpy0pwZf14Nq', '5SbZRZ8QbYXkdw3CyFozLCPQc1TQJXZMNcETkO9TT7IOtkvveUIxeQ5FtYiH', '2018-06-24 23:10:07', '2018-06-24 23:10:07', 0),
+(2, 'dfg', 'aa@a.com', '$2y$10$IdJkNx4/i7y2I4tKgEDABebYHaaF2Uywi.wYXsCJck0s1m4v0y5Oq', 'p9uJSRds6G1g8gvNJnSciqWsqCrntC9IxfTIMAEG4IncX3uquJThkpKBdObH', '2018-08-22 10:40:44', '2018-08-22 10:40:44', 1),
+(3, 'q', 'a1a@a.com', '$2y$10$x.FlGjKwmNfVVQjtE6B/DumVcD51muXl8aWN7m0/CN8YqSGDF.omi', 'tUj8jPXZ9cIHV9IEsSrdSqvQdEKcipYj01FHP5p0sH9cFTcVZTkjvsi4v6fT', '2018-09-27 10:02:45', '2018-09-27 10:02:45', 0);
 
 --
 -- Indexes for dumped tables
@@ -263,12 +286,6 @@ ALTER TABLE `supplier`
   ADD PRIMARY KEY (`id_supplier`);
 
 --
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -294,19 +311,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `movement`
 --
 ALTER TABLE `movement`
-  MODIFY `id_move` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=2;
+  MODIFY `id_move` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสสินค้า';
+  MODIFY `id_product` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสสินค้า', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `purchase_order`
 --
 ALTER TABLE `purchase_order`
-  MODIFY `id_order` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสซื้อสินค้า';
+  MODIFY `id_order` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสซื้อสินค้า', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `purchase_order_detail`
@@ -318,7 +335,7 @@ ALTER TABLE `purchase_order_detail`
 -- AUTO_INCREMENT for table `sell_order`
 --
 ALTER TABLE `sell_order`
-  MODIFY `id_sell` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส';
+  MODIFY `id_sell` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sell_order_detail`
@@ -327,16 +344,16 @@ ALTER TABLE `sell_order_detail`
   MODIFY `id_selldetail` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส';
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `supplier`
 --
-ALTER TABLE `user`
-  MODIFY `id_user` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสพนักงาน';
+ALTER TABLE `supplier`
+  MODIFY `id_supplier` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสผู้จัดจำหน่าย ', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
