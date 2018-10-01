@@ -6,19 +6,19 @@ use Illuminate\Support\Facades\DB;
 
 class Purchase_orderModel 
 {
-  function select(){
+    function select(){
     	$sql = "select * from purchase_order";
     	return DB::select($sql,[]);
     }
-     function select_id($id_order){
+    function select_id($id_order){
         $sql = "select * from purchase_order where id_order = {$id_order}";
         return DB::select($sql, []);
-}
- function select_search($q){
+    }
+    function select_search($q){
         $sql = "select * from purchase_order where id_order like '%{$q}%'";
         return DB::select($sql, []);
-        }
-	 function insert($price,$id_supplier,$id_user){
+    }
+	function insert($price,$id_supplier,$id_user){
         $sql = "insert into purchase_order (price,id_supplier,id_user) 
                 values ({$price},{id_supplier},{id_user})";
         DB::insert($sql, []);
@@ -34,7 +34,7 @@ class Purchase_orderModel
     }
     function select_user() {
         $sql = "select users.id,users.name from purchase_order right join users on purchase_order.id_user = users.id";
-        DB::select($sql,[]);
+        return DB::select($sql,[]);
     }
 
     function delete($id_order){

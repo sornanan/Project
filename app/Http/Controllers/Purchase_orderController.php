@@ -30,20 +30,21 @@ class Purchase_orderController extends Controller
      */
     public function create()
     {
-      $model_sup = new SupplierModel();  
-      $model = new Purchase_orderModel();
+        $model_sup = new SupplierModel();  
         $table_sup = $model_sup->select();
-       $table_user = $model->select_user();
-       foreach ($table_user as $row) {
-           var_dump($table_user);
-       };
 
+        $model = new Purchase_orderModel();       
+        $table_user = $model->select_user();
+
+        foreach ($table_user as $row) {
+           //var_dump($table_user);
+        };
 
         $data = [
                 'table_user' => $table_user,
                 'table_sup' =>$table_sup
         ];
-             return view('purchase_order/create',$data);
+        return view('purchase_order/create',$data);
     }
 
     /**
