@@ -32,6 +32,10 @@ class Purchase_orderModel
                 where id_order = {$id_order}";
         DB::update($sql, []);
     }
+    function select_user() {
+        $sql = "select users.id,users.name from purchase_order right join users on purchase_order.id_user = users.id";
+        DB::select($sql,[]);
+    }
 
     function delete($id_order){
         $sql = "delete from purchase_order where id_order = {$id_order}";

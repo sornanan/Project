@@ -6,6 +6,8 @@ use App\Purchase_orderModel;
 use Illuminate\Http\Request;
 use App\SupplierModel;
 Use App\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class Purchase_orderController extends Controller
 {
@@ -28,9 +30,19 @@ class Purchase_orderController extends Controller
      */
     public function create()
     {
-        $model = new User();
-        $table_user2 = $model->filable();
-            $data = ['table_user2' =>$table_user2];
+      $model_sup = new SupplierModel();  
+      $model = new Purchase_orderModel();
+        $table_sup = $model_sup->select();
+       $table_user = $model->select_user();
+       foreach ($table_user as $row) {
+           var_dump($table_user);
+       };
+
+
+        $data = [
+                'table_user' => $table_user,
+                'table_sup' =>$table_sup
+        ];
              return view('purchase_order/create',$data);
     }
 

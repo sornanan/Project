@@ -19,14 +19,15 @@
 	<div class="line">
 		<strong>ชื่อลูกค้า: </strong>
 		<select name="id">
-			@foreach($table_supplier2 as $row_users)
-			<option value="{{ $row_users->id}}">
-				 {{ $row_users->name}}
+			@foreach($table_sup as $row_sup)
+			<option value="{{ $row_sup->id_supplier}}">
+				 {{ $row_sup->name_supplier}}
 			</option>
 			@endforeach
 		</select>
 	</div>
-		
+	
+	
 	<div class="line">
 		<a href="{{ url('/') }}/purchase_order">back</a>
 		<button type="submit">Create</button>

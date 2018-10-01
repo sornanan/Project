@@ -20,6 +20,8 @@
 				<option value="{{ $row_product->id_product}}" >
 					 {{ $row_product->product}}
 				</option>
+				@endif
+				@endforeach
 			</select>
 		<div class="line">
 			<strong>สินค้าเข้า : </strong>
@@ -37,8 +39,8 @@
 			<strong>ค้างส่ง : </strong>
 			<input type="number" name="send" value="{{ $row->send }}"  >
 		</div>
-				@endif
-			@endforeach
+				
+			
 		</select>
 	</div>
 		

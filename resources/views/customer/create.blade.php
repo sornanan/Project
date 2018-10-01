@@ -17,7 +17,7 @@
 	</div>
 	<div class="line">
 		<strong>เบอร์โทรศัพท์ : </strong>
-		<input type="number"  name="telephone" placeholder="telephone here..." >
+		<input type="text"  name="telephone" placeholder="telephone here..." >
 	</div>
 	<div class="line">
 		<a href="{{ url('/') }}/customer">back</a>
