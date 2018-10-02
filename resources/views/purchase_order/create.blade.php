@@ -6,10 +6,7 @@
 
 	
 	
-		<div class="line">
-		<strong>วันที่ : </strong>
-		<input type="date" name="date" placeholder="address here..." >
-	</div>
+		
 	<div class="line">
 		<strong>Price : </strong>
 		<input type="text" name="price" placeholder="name here..." >
@@ -17,11 +14,21 @@
 	
 
 	<div class="line">
-		<strong>ชื่อลูกค้า: </strong>
+		<strong>ปู้จัดจำหน่าย: </strong>
 		<select name="id">
 			@foreach($table_sup as $row_sup)
 			<option value="{{ $row_sup->id_supplier}}">
 				 {{ $row_sup->name_supplier}}
+			</option>
+			@endforeach
+		</select>
+	</div>
+	<div class="line">
+		<strong>พนักงาน: </strong>
+		<select name="id">
+			@foreach($table_user as $row_user)
+			<option value="{{ $row_user->id}}">
+				 {{ $row_user->name}}
 			</option>
 			@endforeach
 		</select>

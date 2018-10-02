@@ -1,8 +1,8 @@
 <link href="{{ url('/') }}/style.css" rel="stylesheet" type="text/css">
-@forelse($table_customer as $row)
-<h1>Edit Customer : {{ $row->id_customer }}</h1>
-	<form action="{{ url('/') }}/customer/{{ $row->id_customer }}" method="POST">
-		{{ csrf_field() }}
+@forelse($table_purchase_order as $row)
+<h1>Edit Customer : {{ $row->id_order }}</h1>
+	<form action="{{ url('/') }}/customer/{{ $row->id_order }}" method="POST">
+		{{ csrf_field() }}id_order
 		{{ method_field('PUT') }}
 		
 		<div class="line">

@@ -1,28 +1,32 @@
+@extends('templates.master')
+
+@section('content')
 <link href="{{ url('/') }}/style.css" rel="stylesheet" type="text/css">
 <h1>Create New Customer</h1>
 <form action="{{ url('/') }}/customer" method="POST">
 	{{ csrf_field() }}
 	{{ method_field('POST') }}
-	<div class="line">
+	<div class="form-group">
 		<strong>ชื่อ : </strong>
-		<input type="text" name="name_customer" placeholder="name here..." >
+		<input class="form-control type="text" name="name_customer" placeholder="name here..." >
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>ที่อยู่ : </strong>
-		<input type="text" name="address" placeholder="address here..." >
+		<input class="form-control type="text" name="address" placeholder="address here..." >
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>email : </strong>
-		<input type="text" name="email" placeholder="email here..." >
+		<input class="form-control type="text" name="email" placeholder="email here..." >
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>เบอร์โทรศัพท์ : </strong>
-		<input type="text"  name="telephone" placeholder="telephone here..." >
+		<input class="form-control type="text"  name="telephone" placeholder="telephone here..." >
 	</div>
 	<div class="line">
-		<a href="{{ url('/') }}/customer">back</a>
-		<button type="submit">Create</button>
+		<a class="btn btn-primary pull-right " href="{{ url('/') }}/customer">back</a>
+		<button class="btn btn-success type="submit">Create</button>
 	</div>
 </form>
+@endsection()
 
 

@@ -11,6 +11,7 @@ New Purchase
 		<th>price</th>
 		<th>id_supplier</th>
 		<th>id_user</th>
+		<th>action</th>
 	</tr>
 	@foreach($table_purchase_order as $row)
 	<tr>

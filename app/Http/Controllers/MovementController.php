@@ -45,7 +45,7 @@ class MovementController extends Controller
           */
          public function store(Request $request)
     {   $id_product = $request->input('id_product');
-       $inproduct = $request->input('inproduct');
+        $inproduct = $request->input('inproduct');
         $outproduct = $request->input('outproduct');
         $receive = $request->input('receive');
         $send = $request->input('send');
@@ -85,7 +85,7 @@ class MovementController extends Controller
     public function edit($id)
     {
         //movement
-       $model = new MovementModel();
+        $model = new MovementModel();
         $table_movement = $model->select_id($id);
         //product
         $model = new ProductModel();
