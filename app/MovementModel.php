@@ -22,23 +22,23 @@ class MovementModel
     }
     function insert($id_product,$inproduct, $outproduct,$receive,$send,$balance){
         $sql = "insert into movement (id_product,inproduct, outproduct, receive,send,balance) 
-                values ({$id_product} ,{$inproduct}, {$outproduct}, {$receive},{$send},{$balance})";
+                values ({$id_product} ,'{$inproduct}', '{$outproduct}', '{$receive}','{$send}','{$balance}')";
         DB::insert($sql, []);
     }
 
     function update($id_product,$inproduct,$outproduct,$receive,$send,$balance,$id_move){
         $sql = "update movement set 
                 id_product = {$id_product},
-                inproduct = {$inproduct},  
-                outproduct =  {$outproduct},
-                receive =  {$receive},
-                send = {$send},
-                balance = {$balance},
+                inproduct = '{$inproduct}',  
+                outproduct = '{$outproduct}',
+                receive =  '{$receive}',
+                send = '{$send}',
+                balance = '{$balance}'
                 where id_move = {$id_move}";
         DB::update($sql, []);
     }
 
-    function delete($id){
+    function delete($id_move){
         $sql = "delete from movement where id_move = {$id_move}";
         DB::delete($sql, []);
     }

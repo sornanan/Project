@@ -12,10 +12,15 @@ class Purchase_order_detailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
+        $model = new Purchase_order_detailModel();
+        $q = $request->input('q');
+        $table_purchase_order_detail = $model->select_search($q);
+
+        $data = ['table_purchase_order_detail'=>$table_purchase_order_detail,
+        'q'=>$q];
+        return view('purchase_order_detail/index',$data);    }
 
     /**
      * Show the form for creating a new resource.

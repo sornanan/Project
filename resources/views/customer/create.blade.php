@@ -24,7 +24,7 @@
 	</div>
 	<div class="line">
 		<a class="btn btn-primary pull-right " href="{{ url('/') }}/customer">back</a>
-		<button class="btn btn-success type="submit">Create</button>
+		<button class="btn btn-success" type="submit">Create</button>
 	</div>
 </form>
 @endsection()

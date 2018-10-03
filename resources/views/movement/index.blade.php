@@ -1,23 +1,27 @@
-<h1>movement List</h1>
+@extends('templates.master')
+
+@section('content')
+<h1>Movement List</h1>
 <div class="line">
-	<a href="{{ url('/') }}/movement/create">
+	<a class="btn btn-primary" href="{{ url('/') }}/movement/create"style="margin-bottom: 15px;">
 New movement
 </a>
-</div>
-<table border=1>
+ <table class="table table-bordered">
+
 <tr>
-		<th>id_move</th>
-		<th>id_product</th>
-		<th>date</th>
-		<th>inproduct</th>
-		<th>outproduct</th>
-		<th>receive</th>
-		<th>send</th>
-		<th>balance</th>
+		<th style="padding-left: 15px;">id_move</th>
+		<th>รหัสสินค้า</th>
+		<th>วันที่</th>
+		<th>สินค้าเข้า</th>
+		<th>สินค้าออก</th>
+		<th>ค้างรับสินค้า</th>
+		<th>ค้างส่งสินค้า</th>
+		<th>ยอดคงเหลือสินค้า</th>
+		<th width="120px;">Action</th>
 	</tr>
 	@foreach($table_movement as $row)
 	<tr>
-		<td>{{ $row->id_move }} </td>
+		<td style ="padding-left: 40px;">{{ $row->id_move }} </td>
 		<td>{{ $row->id_product }} </td>
 		<td>{{ $row->date }}</td>
 		<td>{{ $row->inproduct }}</td>
@@ -27,9 +31,10 @@ New movement
 		<td>{{ $row->balance }}</td>
 
 		<td>
-			<a href="{{ url('/') }}/movement/{{ $row->id_move }}">View</a>
-			<a href="{{ url('/') }}/movement/{{ $row->id_move }}/edit">Edit</a>
+			<a class="btn-success btn-sm" href="{{ url('/') }}/movement/{{ $row->id_move }}">View</a>
+			<a class="btn-success btn-sm" href="{{ url('/') }}/movement/{{ $row->id_move }}/edit">Edit</a>
 		</td>
 	</tr>
 	@endforeach
 </table>
+@endsection()

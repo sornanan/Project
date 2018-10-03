@@ -1,28 +1,31 @@
-<link href="{{ url('/') }}/style.css" rel="stylesheet" type="text/css">
-<h1>Create New Customer</h1>
-<form action="{{ url('/') }}/customer" method="POST">
+@extends('templates.master')
+@section('content')
+<h1>Create New Sell_orderdetail</h1>
+<form action="{{ url('/') }}/purchase_order_detail" method="POST">
 	{{ csrf_field() }}
 	{{ method_field('POST') }}
-	<div class="line">
-		<strong>Name : </strong>
-		<input type="text" name="name_customer" placeholder="name here..." >
+
+	<div class="form-group" >
+		<strong>รายละเอียด </strong>
+		<input class="form-control" type="text" name="detail" >
 	</div>
 	<div class="line">
-		<strong>ที่อยู่ : </strong>
-		<input type="number" name="address" placeholder="address here..." >
+		<strong>จำนวน : </strong>
+		<input class="form-control" type="text" name="quantity" >
 	</div>
-	<div class="line">
-		<strong>email : </strong>
-		<input type="text" name="email" placeholder="email here..." >
+	<div class="form-group">
+		<strong>ราคา : </strong>
+		<input class="form-control" type="text" name="price">
 	</div>
-	<div class="line">
-		<strong>Telephone : </strong>
-		<input type="number"  name="telephone" placeholder="telephone here..." >
+	<div class="form-group">
+		<strong>จำนวนเงิน : </strong>
+		<input class="form-control" type="text"  name="amount"  >
 	</div>
+
 	<div class="line">
-		<a href="{{ url('/') }}/customer">back</a>
+		<a href="{{ url('/') }}/purchase_order_detail">back</a>
 		<button type="submit">Create</button>
 	</div>
 </form>
-
+@endsection()
 

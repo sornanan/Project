@@ -1,46 +1,49 @@
-<link href="{{ url('/') }}/style.css" rel="stylesheet" type="text/css">
+@extends('templates.master')
+
+@section('content')
 @forelse($table_movement as $row)
-	<h1>Customer : {{ $row->id_move }} </h1>
-	<div class="line">
+	<h1>Movement : {{ $row->id_move }} </h1>
+	<div class="form-group">
 		<strong>id_move : </strong>
-		<span>{{ $row->id_move }} </span>
+		<span class="form-control">{{ $row->id_move }} </span>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>id_product : </strong>
-		<span>{{ $row->id_product}}</span>
+		<span class="form-control">{{ $row->id_product}}</span>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>date: </strong>		
-		<span>{{ $row->date }}</span>
+		<span class="form-control">{{ $row->date }}</span>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>inproduct : </strong>		
-		<span>{{ $row->inproduct }}</span>
+		<span class="form-control">{{ $row->inproduct }}</span>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>outproduct : </strong>		
-		<span>{{ $row->outproduct }}</span>
+		<span class="form-control">{{ $row->outproduct }}</span>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>receive : </strong>		
-		<span>{{ $row->receive }}</span>
+		<span class="form-control">{{ $row->receive }}</span>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>send : </strong>		
-		<span>{{ $row->send }}</span>
+		<span class="form-control">{{ $row->send }}</span>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>balance : </strong>		
-		<span>{{ $row->balance }}</span>
+		<span class="form-control">{{ $row->balance }}</span>
 	</div>
-	<div class="line">
-		<a href="{{ url('/') }}/movement">back</a>
-		<a href="{{ url('/') }}/movement/{{ $row->id_move }}/edit">edit</a>
-		<div class="line">
+	<div class="form-group">
+		<a class="btn btn-success  pull-right" href="{{ url('/') }}/movement/{{ $row->id_move }}/edit">edit</a>
+		<a class= "btn btn-primary "href="{{ url('/') }}/movement">back</a>
+		
 	<form class="inline" action="{{ url('/') }}/movement/{{ $row->id_move }}" method="POST">
+		<br><button class="btn btn-danger btn-sm pull-right " type="submit">Delete</button>
 		{{ csrf_field() }}
 		{{ method_field('DELETE') }}
-		<button type="submit">Delete</button>
+		
 	</form>
 </div>
 
@@ -50,5 +53,5 @@
 	<div>This Customer id does not exist</div>
 
 @endforelse
-
+@endsection()
 

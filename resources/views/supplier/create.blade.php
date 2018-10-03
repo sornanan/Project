@@ -1,28 +1,30 @@
-<link href="{{ url('/') }}/style.css" rel="stylesheet" type="text/css">
+@extends('templates.master')
+
+@section('content')
 <h1>Create New Supplier</h1>
 <form action="{{ url('/') }}/supplier" method="POST">
 	{{ csrf_field() }}
 	{{ method_field('POST') }}
-	<div class="line">
+	<div class="form-group">
 		<strong>Name : </strong>
-		<input type="text" name="name_supplier" placeholder="name here..." >
+		<input class="form-control type="text" name="name_supplier"  >
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>ที่อยู่ : </strong>
-		<input type="text" name="address" placeholder="address here..." >
+		<input class="form-control type="text" name="address"  >
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>email : </strong>
-		<input type="text" name="email" placeholder="email here..." >
+		<input class="form-control type="text" name="email"  >
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>Telephone : </strong>
-		<input type="number"  name="telephone" placeholder="telephone here..." >
+		<input class="form-control type="number"  name="telephone"  >
 	</div>
 	<div class="line">
-		<a href="{{ url('/') }}/supplier">back</a>
-		<button type="submit">Create</button>
+		<a class="btn btn-primary pull-right " href="{{ url('/') }}/supplier">back</a>
+		<button class="btn btn-success" type="submit">Create</button>
 	</div>
 </form>
-
+@endsection()
 

@@ -20,7 +20,7 @@ class Purchase_orderModel
     }
 	function insert($price,$id_supplier,$id_user){
         $sql = "insert into purchase_order (price, id_supplier, id_user) 
-                values ({$price}, {id_supplier} , {id_user})";
+                values ('{$price}', {id_supplier} , {id_user})";
         DB::insert($sql, []);
     }
     function update($price,$id_supplier,$id_user,$id_order){

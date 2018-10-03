@@ -1,32 +1,40 @@
-<link href="{{ url('/') }}/style.css" rel="stylesheet" type="text/css">
+@extends('templates.master')
+
+@section('content')
 @forelse($table_purchase_order as $row)
-<h1>Edit Customer : {{ $row->id_order }}</h1>
-	<form action="{{ url('/') }}/customer/{{ $row->id_order }}" method="POST">
+<h1>Edit Purchase_order : {{ $row->id_order }}</h1>
+	<form action="{{ url('/') }}/purchase_order/{{ $row->id_order }}" method="POST">
 		{{ csrf_field() }}id_order
 		{{ method_field('PUT') }}
 		
-		<div class="line">
-			<strong>ชื่อ-นามสกุล : </strong>
-			<input type="text" name="name_customer" value="{{ $row->name_customer }}" >
+		<div class="form-group">
+			<strong>ราคา : </strong>
+			<input class="form-control"type="text" name="price" value="{{ $row->price }}"  >
 		</div>
+		<div class="form-group">
+		<strong>ปู้จัดจำหน่าย: </strong>
+		<select class="form-control" name="id">
+			@foreach($table_sup as $row_sup)
+			<option value="{{ $row_sup->id_supplier}}">
+				 {{ $row_sup->name_supplier}}
+			</option>
+			@endforeach
+		</select>
+	</div>
+	<div class="form-group">
+		<strong>พนักงาน: </strong>
+		<select class="form-control" name="id">
+			@foreach($table_user as $row_user)
+			<option value="{{ $row_user->id}}">
+				 {{ $row_user->name}}
+			</option>
+			@endforeach
 		<div class="line">
-			<strong>ที่อยู่ : </strong>
-			<input type="text" name="address" value="{{ $row->address }}"  >
-		</div>
-		<div class="line">
-			<strong>email : </strong>
-			<input type="text" name="email" value="{{ $row->email }}"  >
-		</div>
-		<div class="line">
-			<strong>เบอร์โทรศัพท์ : </strong>
-			<input type="number" name="telephone" value="{{ $row->telephone }}"  >
-		</div>
-		<div class="line">
-			<a href="{{ url('/') }}/customer">back</a>
+			<a href="{{ url('/') }}/purchase_order">back</a>
 			<button type="submit">Update</button>
 		</div>
 	</form>
 @empty	
 	<div>This Customer id does not exist</div>
 @endforelse
-
+@endsection()

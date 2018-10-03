@@ -36,8 +36,8 @@ class Sell_order_detailModel
         DB::update($sql, []);
     }
 
-    function delete($id_customer){
-        $sql = "delete from sell_order_detail where id_customer = {$id_customer}";
+    function delete($id_selldetail){
+        $sql = "delete from sell_order_detail where id_selldetail = {$id_selldetail}";
         DB::delete($sql, []);
     }
 

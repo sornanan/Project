@@ -1,19 +1,22 @@
-<h1>ผู้จัดจำหน่าย List</h1>
+@extends('templates.master')
+
+@section('content')
+<h1>Supplier List</h1>
 <div class="line">
-	<a href="{{ url('/') }}/supplier/create">
+	<a class="btn btn-primary"  href="{{ url('/') }}/supplier/create"style="margin-bottom: 15px;">
 		
 เพิ่มผู้จัดจำหน่าย
 </a>
 </div>
 <br>
-<table border=1>
+<table class="table table-bordered">
 <tr>
-		<th>รหัส</th>
+		<th style="padding-left: 15px;">รหัส</th>
 		<th>ชื่อ</th>
 		<th>ที่อยู่</th>
 		<th>email</th>
 		<th>เบอร์โทรศัพท์</th>
-		<th>action</th>
+		<th width="120px;">action</th>
 	</tr>
 	@foreach($table_supplier as $row)
 	<tr>
@@ -23,9 +26,10 @@
 		<td>{{ $row->email }}</td>
 		<td>{{ $row->telephone }}</td>
 		<td>
-			<a href="{{ url('/') }}/supplier/{{ $row->id_supplier }}">View</a>
-			<a href="{{ url('/') }}/supplier/{{ $row->id_supplier }}/edit">Edit</a>
+			<a class="btn-success btn-sm"  href="{{ url('/') }}/supplier/{{ $row->id_supplier }}">View</a>
+			<a class="btn-success btn-sm"  href="{{ url('/') }}/supplier/{{ $row->id_supplier }}/edit">Edit</a>
 		</td>
 	</tr>
 	@endforeach
 </table>
+@endsection()

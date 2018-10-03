@@ -36,7 +36,7 @@ class SupplierModel
     }
 
     function delete($id_supplier){
-        $sql = "delete from customer where id_supplier = {$id_supplier}";
+        $sql = "delete from supplier where id_supplier = {$id_supplier}";
         DB::delete($sql, []);
     }
 }

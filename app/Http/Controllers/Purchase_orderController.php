@@ -6,7 +6,7 @@ use App\Purchase_orderModel;
 use Illuminate\Http\Request;
 use App\SupplierModel;
 Use App\UserModel;
-use Illuminate\Support\Facades\Auth;
+
 
 
 class Purchase_orderController extends Controller

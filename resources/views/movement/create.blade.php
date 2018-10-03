@@ -1,13 +1,14 @@
-<link href="{{ url('/') }}/style.css" rel="stylesheet" type="text/css">
+@extends('templates.master')
+@section('content')
 <h1>Create New Movement</h1>
 <form action="{{ url('/') }}/movement" method="POST">
 	{{ csrf_field() }}
 	{{ method_field('POST') }}
 
 	
-	<div class="line">
+	<div class="form-group">
 		<strong>ชื่อสินค้า : </strong>
-		<select name="id_product">
+		<select class="form-control" name="id_product">
 			@foreach($table_product2 as $row_product)
 			<option value="{{ $row_product->id_product}}">
 				 {{ $row_product->product}}
@@ -15,26 +16,26 @@
 			@endforeach
 		</select>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>สินค้าเข้า : </strong>
-		<input type="number" name="inproduct" placeholder="name here..." >
+		<input class="form-control type="text" name="inproduct" >
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>สินค้าออก : </strong>
-		<input type="number" name="outproduct" placeholder="address here..." >
+		<input class="form-control type="text" name="outproduct" >
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>สินค้าค้างรับ : </strong>
-		<input type="number" name="receive" placeholder="email here..." >
+		<input class="form-control type="text" name="receive" >
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>สินค้าค้างส่ง : </strong>
-		<input type="number"  name="send" placeholder="telephone here..." >
+		<input class="form-control type="text"  name="send">
 	</div>
-	<div class="line">
-		<a href="{{ url('/') }}/movement">back</a>
-		<button type="submit">Create</button>
+	<div class="form-group">
+		<a class="btn btn-primary pull-right " href="{{ url('/') }}/movement">back</a>
+		<button class="btn btn-success type="submit">Create</button>
 	</div>
 </form>
-
+@endsection()
 

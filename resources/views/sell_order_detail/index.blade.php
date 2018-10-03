@@ -1,12 +1,15 @@
-<h1>Customer List</h1>
+@extends('templates.master')
+
+@section('content')
+<h1>Sell_orderdetail List</h1>
 <div class="line">
-	<a href="{{ url('/') }}/sell_order_detail/create">
-New Customer
+	<a class="btn btn-primary" href="{{ url('/') }}/sell_order_detail/create"style="margin-bottom: 15px;">
+New Sell_order_detail
 </a>
 </div>
-<table border=1>
+<table class="table table-bordered">
 <tr>
-		<th>รหัส</th>
+		<th style="padding-left: 15px;">รหัส</th>
 		<th>รหัสสินค้า</th>
 		<th>จำนวน</th>
 		<th>ราคา</th>
@@ -25,9 +28,10 @@ New Customer
 
 		
 		<td>
-			<a href="{{ url('/') }}/sell_order_detail/{{ $row->id_selldetail }}">View</a>
-			<a href="{{ url('/') }}/sell_order_detail/{{ $row->id_selldetail }}/edit">Edit</a>
+			<a class="btn-success btn-sm" href="{{ url('/') }}/sell_order_detail/{{ $row->id_selldetail }}">View</a>
+			<a class="btn-success btn-sm" href="{{ url('/') }}/sell_order_detail/{{ $row->id_selldetail }}/edit">Edit</a>
 		</td>
 	</tr>
 	@endforeach
 </table>
+@endsection()

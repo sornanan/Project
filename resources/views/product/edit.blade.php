@@ -1,20 +1,23 @@
-<link href="{{ url('/') }}/style.css" rel="stylesheet" type="text/css">
+@extends('templates.master')
+
+@section('content')
 @forelse($table_product as $row)
 <h1>Edit Product : {{ $row->id_product }}</h1>
 	<form action="{{ url('/') }}/product/{{ $row->id_product}}" method="POST">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}
 		
-		<div class="line">
+		<div class="form-group">
 			<strong>ชื่อสินค้า : </strong>
-			<input type="text" name="product" value="{{ $row->product }}" >
+			<input class="form-control" type="text" name="product" value="{{ $row->product }}" >
 		</div>
-		<div class="line">
-			<a href="{{ url('/') }}/product">back</a>
-			<button type="submit">Update</button>
+		<div class="form-group">
+			<a class="btn btn-primary pull-right " href="{{ url('/') }}/product">back</a>
+			<button class="btn btn-success " type="submit">Update</button>
 		</div>
 	</form>
 @empty	
 	<div>This Product id does not exist</div>
 @endforelse
 
+@endsection()

@@ -1,7 +1,6 @@
 @extends('templates.master')
 
 @section('content')
-<link href="{{ url('/') }}/style.css" rel="stylesheet" type="text/css">
 @forelse($table_customer as $row)
 	<h1>Customer : {{ $row->id_customer }} </h1>
 	<div class="form-group">
