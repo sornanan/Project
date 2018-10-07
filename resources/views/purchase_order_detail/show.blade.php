@@ -1,21 +1,28 @@
-<link href="{{ url('/') }}/style.css" rel="stylesheet" type="text/css">
-@forelse($table_customer as $row)
-	<h1>Customer : {{ $row->id_customer }} </h1>
+@forelse($table_purchase_order_detail as $row)
+	<h1>Customer : {{ $row->id_orderdetail }} </h1>
 	<div class="line">
-		<strong>name : </strong>
-		<span>{{ $row->name_customer }} </span>
+		<strong>รายละเอียด : </strong>
+		<span>{{ $row->detail }} </span>
 	</div>
 	<div class="line">
-		<strong>address : </strong>
-		<span>{{ $row->address}}</span>
+		<strong>จำนวน : </strong>
+		<span>{{ $row->quantity}}</span>
 	</div>
 	<div class="line">
-		<strong>email: </strong>		
-		<span>{{ $row->email }}</span>
+		<strong>ราคา: </strong>		
+		<span>{{ $row->price }}</span>
 	</div>
 	<div class="line">
-		<strong>telephone : </strong>		
-		<span>{{ $row->telephone }}</span>
+		<strong>จำนวนเงิน : </strong>		
+		<span>{{ $row->amount }}</span>
+	</div>
+	<div class="line">
+		<strong>id_product : </strong>		
+		<span>{{ $row->id_product }}</span>
+	</div>
+	<div class="line">
+		<strong>id_order : </strong>		
+		<span>{{ $row->id_order }}</span>
 	</div>
 	<div class="line">
 		<a href="{{ url('/') }}/customer">back</a>

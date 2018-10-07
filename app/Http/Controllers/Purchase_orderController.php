@@ -118,7 +118,7 @@ class Purchase_orderController extends Controller
 
 
         $model = new Purchase_orderModel();
-        $model->insert($price,$id_supplier,$id_user,$id_order);
+        $model->update($price,$id_supplier,$id_user,$id_order);
         return redirect('/purchase_order');
     }
 
@@ -130,7 +130,7 @@ class Purchase_orderController extends Controller
      */
     public function destroy($id_order)
     {
-        $model = new PurchaseModel();
+        $model = new Purchase_orderModel();
         $model->delete($id_order);
 
         return redirect('/purchase_order');

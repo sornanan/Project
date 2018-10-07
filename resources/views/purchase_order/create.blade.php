@@ -13,7 +13,7 @@
 	
 
 	<div class="form-group">
-		<strong>ปู้จัดจำหน่าย: </strong>
+		<strong>ผู้จัดจำหน่าย: </strong>
 		<select class="form-control" name="id_supplier">
 			@foreach($table_sup as $row_sup)
 			<option value="{{ $row_sup->id_supplier}}">

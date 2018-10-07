@@ -22,7 +22,7 @@ class SupplierModel
 
     function insert($name_supplier, $address, $email,$telephone){
         $sql = "insert into supplier (name_supplier, address, email,telephone) 
-                values ( '{$name_supplier}', '{$address}', '{$email}',{$telephone})";
+                values ( '{$name_supplier}', '{$address}', '{$email}','{$telephone}'')";
         DB::insert($sql, []);
     }
 
@@ -30,7 +30,7 @@ class SupplierModel
         $sql = "update supplier set 
                 name_supplier = '{$name_supplier}',  
                 address =  '{$address}', email = '{$email}',
-                telephone = {$telephone}
+                telephone = '{$telephone}'
                 where id_supplier = {$id_supplier}";
         DB::update($sql, []);
     }

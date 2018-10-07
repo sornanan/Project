@@ -10,7 +10,7 @@
 		
 		<div class="form-group">
 			<strong>ชื่อ-นามสกุล : </strong>
-			<input class="form-control" type="text" name="name" value="{{ $row->name_supplier }}" >
+			<input class="form-control" type="text" name="name_supplier" value="{{ $row->name_supplier }}" >
 		</div>
 		<div class="form-group">
 			<strong>ที่อยู่ : </strong>

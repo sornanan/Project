@@ -94,7 +94,7 @@ class MovementController extends Controller
         //data
         $data = [
             'table_movement' => $table_movement,
-            'table_product2' =>$table_product2,
+            'table_product2' => $table_product2,
             'id'=> $id
         ];
         return view('movement/edit',$data);

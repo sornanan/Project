@@ -12,8 +12,8 @@
 			<input class="form-control"type="text" name="price" value="{{ $row->price }}"  >
 		</div>
 		<div class="form-group">
-		<strong>ปู้จัดจำหน่าย: </strong>
-		<select class="form-control" name="id">
+		<strong>ผู้จัดจำหน่าย: </strong>
+		<select class="form-control" name="id_supplier">
 			@foreach($table_sup as $row_sup)
 			<option value="{{ $row_sup->id_supplier}}">
 				 {{ $row_sup->name_supplier}}
@@ -23,7 +23,7 @@
 	</div>
 	<div class="form-group">
 		<strong>พนักงาน: </strong>
-		<select class="form-control" name="id">
+		<select class="form-control" name="id_user">
 			@foreach($table_user as $row_user)
 			<option value="{{ $row_user->id}}">
 				 {{ $row_user->name}}
