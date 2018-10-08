@@ -72,7 +72,7 @@ class Purchase_orderController extends Controller
     {
         $model = new Purchase_orderModel();
         $table_purchase_order = $model->select_id($id);
-        $data = ['table_purchase_order '=>$table_purchase_order];
+        $data = ['table_purchase_order'=>$table_purchase_order];
 
         return view('purchase_order/show',$data);
     }
@@ -95,7 +95,7 @@ class Purchase_orderController extends Controller
         $table_user = $model_user->select();
 
 
-        $data = ['table_purchase_order '=>$table_purchase_order,
+        $data = ['table_purchase_order'=>$table_purchase_order,
                  'table_sup' =>$table_sup,
                  'table_user' => $table_user];
         
