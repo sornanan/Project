@@ -4,7 +4,7 @@
 @forelse($table_purchase_order as $row)
 <h1>Edit Purchase_order : {{ $row->id_order }}</h1>
 	<form action="{{ url('/') }}/purchase_order/{{ $row->id_order }}" method="POST">
-		{{ csrf_field() }}id_order
+		{{ csrf_field() }}
 		{{ method_field('PUT') }}
 		
 		<div class="form-group">

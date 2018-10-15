@@ -9,7 +9,6 @@ New ขายสินค้า
 		<th>รหัสขาย</th>
 		<th>วันที่ขายสินค้า</th>
 		<th>ราคา</th>
-		<th>วันที่รับสินค้าคืน</th>
 		<th>วันที่เสนอราคา</th>
 		<th>รหัสลูกค้า</th>
 		<th>รหัสพนักงาน</th>
@@ -20,7 +19,6 @@ New ขายสินค้า
 		<td>{{ $row->id_sell }} </td>
 		<td>{{ $row->date }} </td>
 		<td>{{ $row->price }}</td>
-		<td>{{ $row->date_sent }}</td>
 		<td>{{ $row->date_quatation }}</td>
 		<td>{{ $row->id_customer}}</td>
 		<td>{{ $row->id_user}}</td>

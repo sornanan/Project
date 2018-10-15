@@ -56,13 +56,12 @@ class Sell_orderController extends Controller
     {
         $date = $request ->input('date');
         $price = $request ->input('price');
-        $date_sent = $request ->input('date_sent');
         $date_quatation = $request->input('date_quatation');
         $id_customer = $request ->input('id_customer');
         $id_user = $request ->input('id_user');
         $model = new Sell_orderModel();
         
-        $model ->insert($date,$price,$date_sent,$date_quatation,$id_customer,$id_user);
+        $model ->insert($date,$price,$date_quatation,$id_customer,$id_user);
 
         return redirect('/sell_order');
     }
@@ -75,7 +74,11 @@ class Sell_orderController extends Controller
      */
     public function show($id)
     {
-        //
+        $model = new Sell_orderModel();
+        $table_sell_order = $model->select_id($id);
+        $data = ['table_sell_order' =>$table_sell_order];
+
+        return view('sell_order/show',$data);
     }
 
     /**
@@ -86,7 +89,22 @@ class Sell_orderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $model = new sell_orderModel();
+        $table_sell_order = $model->select_id($id);
+
+        $model_cus = new CustomerModel();  
+        $table_cus = $model_cus->select();
+
+    
+        $model_user = new UserModel();       
+        $table_user = $model_user->select();
+
+
+        $data = ['table_sell_order'=>$table_sell_order,
+                'table_cus' => $table_cus,
+                'table_user' =>$table_user
+        ];
+        return view('sell_order/edit',$data);
     }
 
     /**
@@ -96,9 +114,17 @@ class Sell_orderController extends Controller
      * @param  \App\Sell_orderModel  $sell_orderModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_sellorder)
+    public function update(Request $request,$id_sell)
     {
-        //
+        $date           = $request->input('date');
+        $price          = $request->input('price');
+        $date_quatation = $request->input('date_quatation');
+        $id_customer    = $request->input('id_customer');
+        $id_user        = $request->input('id_user');
+        $model = new Sell_orderModel();
+
+        $model->update($date,$price,$date_quatation,$id_customer,$id_user,$id_sell);
+        return redirect('/sell_order');
     }
 
     /**
@@ -107,8 +133,11 @@ class Sell_orderController extends Controller
      * @param  \App\Sell_orderModel  $sell_orderModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sell_orderModel $sell_orderModel)
+    public function destroy($id_sell)
     {
-        //
+        $model = new Sell_orderModel();
+        $model->delete($id_sell);
+
+        return redirect('/sell_order');
     }
 }

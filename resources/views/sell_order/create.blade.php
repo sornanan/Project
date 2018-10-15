@@ -1,5 +1,5 @@
 
-<h1>Create New Customer</h1>
+<h1>Create New </h1>
 <form action="{{ url('/') }}/sell_order" method="POST">
 	{{ csrf_field() }}
 	{{ method_field('POST') }}
@@ -10,10 +10,6 @@
 	<div class="line">
 		<strong>ราคา : </strong>
 		<input type="text" name="price" >
-	</div>
-	<div class="line">
-		<strong>วันที่รับสินค้าคืน : </strong>
-		<input type="date" name="date_sent" >
 	</div>
 	<div class="line">
 		<strong>วันที่เสนอราคา : </strong>
