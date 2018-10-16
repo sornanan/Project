@@ -1,4 +1,4 @@
-@extends('templates.master')
+@extends('theme.default')
 @section('content')
 <h1>Create New Purchase_orderdetail</h1>
 <form action="{{ url('/') }}/purchase_order_detail" method="POST">

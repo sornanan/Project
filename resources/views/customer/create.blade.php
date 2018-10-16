@@ -1,5 +1,4 @@
-@extends('templates.master')
-
+@extends('theme.default')
 @section('content')
 <link href="{{ url('/') }}/style.css" rel="stylesheet" type="text/css">
 <h1>Create New Customer</h1>

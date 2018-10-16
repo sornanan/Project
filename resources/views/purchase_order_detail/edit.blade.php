@@ -1,11 +1,27 @@
-@extends('templates.master')
-
+@extends('theme.default')
 @section('content')
 @forelse($table_purchase_order_detail as $row)
-<h1>Edit Purchase : {{ $row->id_orderdetail }}</h1>
-	<form action="{{ url('/') }}/customer/{{ $row->id_orderdetail }}" method="POST">
+<h1>Edit Purchase_or : {{ $row->id_orderdetail }}</h1>
+	<form action="{{ url('/') }}/purchase_order_detail/{{ $row->id_orderdetail }}" method="POST">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}
+		
+		<div class="form-group">
+			<strong>รายละเอียด : </strong>
+			<input class="form-control"type="text" name="detail" value="{{ $row->detail }}">
+		</div>
+		<div class="form-group">
+			<strong>จำนวน : </strong>
+			<input class="form-control"type="text" name="quantity" value="{{ $row->quantity }}">
+		</div>
+		<div class="form-group">
+			<strong>ราคา : </strong>
+			<input class="form-control"type="text" name="price" value="{{ $row->price }}">
+		</div>
+		<div class="form-group">
+			<strong>จำนวนเงิน : </strong>
+			<input class="form-control"type="text" name="amount" value="{{ $row->amount }}">
+		</div>
 			<div class="form-group">
 		<strong>สินค้า: </strong>
 		<select class="form-control" name="id_product">
@@ -26,31 +42,13 @@
 			@endforeach
 		</select>
 	</div>
-		<diiv class="form-group">
-			<strong>รายละเอียด : </strong>
-			<input class="form-control"type="text" name="price" value="{{ $row->price }}"  >
-		</div>
-		<diiv class="form-group">
-			<strong>จำนวน : </strong>
-			<input class="form-control"type="text" name="price" value="{{ $row->price }}"  >
-		</div>
-		<diiv class="form-group">
-			<strong>ราคา : </strong>
-			<input class="form-control"type="text" name="price" value="{{ $row->price }}"  >
-		</div>
-		<diiv class="form-group">
-			<strong>จำนวนเงิน : </strong>
-			<input class="form-control"type="text" name="price" value="{{ $row->price }}"  >
-		</div>
-	
-	
-		<div class="line">
-			<a href="{{ url('/') }}/customer">back</a>
-			<button type="submit">Update</button>
+	<div class="form-group">
+			<a class="btn btn-primary pull-right " href="{{ url('/') }}/purchase_order_detail">back</a>
+			<button class="btn btn-success " type="submit">Update</button>
 		</div>
 	</form>
 @empty	
 	<div>This Purchase id does not exist</div>
 @endforelse
-@endsection()
+@endsection
 

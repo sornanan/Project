@@ -1,4 +1,5 @@
-<link href="{{ url('/') }}/style.css" rel="stylesheet" type="text/css">
+@extends('theme.default')
+@section('content')
 @forelse($table_sell_order as $row)
 	<h1>Customer : {{ $row->id_customer }} </h1>
 	<div class="line">
@@ -43,5 +44,5 @@
 	<div>This Customer id does not exist</div>
 
 @endforelse
-
+@endsection
 

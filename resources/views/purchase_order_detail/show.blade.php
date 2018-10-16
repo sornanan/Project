@@ -1,3 +1,5 @@
+@extends('theme.default')
+@section('content')
 @forelse($table_purchase_order_detail as $row)
 	<h1>Customer : {{ $row->id_orderdetail }} </h1>
 	<div class="line">
@@ -25,10 +27,10 @@
 		<span>{{ $row->id_order }}</span>
 	</div>
 	<div class="line">
-		<a href="{{ url('/') }}/customer">back</a>
-		<a href="{{ url('/') }}/customer/{{ $row->id_customer }}/edit">edit</a>
+		<a href="{{ url('/') }}/purchase_order_detail">back</a>
+		<a href="{{ url('/') }}/purchase_order_detail/{{ $row->id_orderdetail }}/edit">edit</a>
 		<div class="line">
-	<form class="inline" action="{{ url('/') }}/customer/{{ $row->id_customer }}" method="POST">
+	<form class="inline" action="{{ url('/') }}/purchase_order_detail/{{ $row->id_orderdetail }}" method="POST">
 		{{ csrf_field() }}
 		{{ method_field('DELETE') }}
 		<button type="submit">Delete</button>
@@ -41,5 +43,5 @@
 	<div>This Customer id does not exist</div>
 
 @endforelse
-
+@endsection
 

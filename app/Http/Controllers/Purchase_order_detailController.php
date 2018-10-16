@@ -54,13 +54,13 @@ class Purchase_order_detailController extends Controller
      */
     public function store(Request $request)
     {
-        $detail = $request->input('detail');
-        $quantity = $request->input('quantity');
-        $price = $request->input('price');
-        $amount = $request->input('amount');
+        $detail     = $request->input('detail');
+        $quantity   = $request->input('quantity');
+        $price      = $request->input('price');
+        $amount     = $request->input('amount');
         $id_product = $request->input('id_product');
-        $id_order = $request->input('id_order');
-        $model = new Purchase_order_detailModel();
+        $id_order   = $request->input('id_order');
+        $model      = new Purchase_order_detailModel();
 
         $model->insert($detail,$quantity,$price,$amount,$id_product,$id_order);
         
@@ -100,7 +100,7 @@ class Purchase_order_detailController extends Controller
         $table_per = $model_per->select();
 
 
-        $data = ['table_purchase_order_detail '=>$table_purchase_order_detail,
+        $data = ['table_purchase_order_detail'=>$table_purchase_order_detail,
                  'table_pro' => $table_pro,
                  'table_per' => $table_per,
                
@@ -123,9 +123,11 @@ class Purchase_order_detailController extends Controller
         $quantity    = $request->input('quantity');
         $price       = $request->input('price');
         $amount      = $request->input('amount');
+        $id_product  = $request->input('id_product');
+        $id_order    = $request->input('id_order');
         $model       = new Purchase_order_detailModel();
 
-         $model->update($detail,$quantity,$price,$amount);
+         $model->update($detail,$quantity,$price,$amount,$id_product,$id_order,$id_orderdetail);
         return redirect('/purchase_order_detail');
     }
 

@@ -1,5 +1,4 @@
-@extends('templates.master')
-
+@extends('theme.default')
 @section('content')
 <h1>Purchase_orderdetail List</h1>
 <div class="line">

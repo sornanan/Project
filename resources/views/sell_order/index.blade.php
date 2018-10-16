@@ -1,3 +1,5 @@
+@extends('theme.default')
+@section('content')
 <h1>ขายสินค้า List</h1>
 <div class="line">
 	<a href="{{ url('/') }}/sell_order/create">
@@ -29,3 +31,4 @@ New ขายสินค้า
 	</tr>
 	@endforeach
 </table>
+@endsection

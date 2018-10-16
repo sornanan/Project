@@ -1,5 +1,4 @@
-@extends('templates.master')
-
+@extends('theme.default')
 @section('content')
 @forelse($table_movement as $row)
 	<h1>Movement : {{ $row->id_move }} </h1>

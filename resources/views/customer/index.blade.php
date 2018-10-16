@@ -1,6 +1,6 @@
-@extends('templates.master')
-
+@extends('theme.default')
 @section('content')
+
 <h1>Customer List</h1>
 <div class="line">
 	<a class="btn btn-primary" href="{{ url('/') }}/customer/create"style="margin-bottom: 15px;">
@@ -38,4 +38,5 @@ New Customer</a>
 	@endforeach
 	
 </table>
-@endsection()
+
+@endsection

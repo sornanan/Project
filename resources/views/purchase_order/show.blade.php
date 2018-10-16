@@ -1,3 +1,5 @@
+@extends('theme.default')
+@section('content')
 @forelse($table_purchase_order as $row)
 	<h1>Purchase_order : {{ $row->id_order }} </h1>
 	<div class="line">
@@ -38,5 +40,5 @@
 	<div>This Purchas id does not exist</div>
 
 @endforelse
-
+@endsection
 

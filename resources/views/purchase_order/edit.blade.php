@@ -1,5 +1,4 @@
-@extends('templates.master')
-
+@extends('theme.default')
 @section('content')
 @forelse($table_purchase_order as $row)
 <h1>Edit Purchase_order : {{ $row->id_order }}</h1>
@@ -35,6 +34,6 @@
 		</div>
 	</form>
 @empty	
-	<div>This Customer id does not exist</div>
+	<div>This  id does not exist</div>
 @endforelse
 @endsection()

@@ -1,5 +1,4 @@
-@extends('templates.master')
-
+@extends('theme.default')
 @section('content')
 @forelse($table_product as $row)
 	<h1>Product : {{ $row->id_product }} </h1>

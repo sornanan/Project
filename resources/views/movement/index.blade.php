@@ -1,5 +1,4 @@
-@extends('templates.master')
-
+@extends('theme.default')
 @section('content')
 <h1>Movement List</h1>
 <div class="line">

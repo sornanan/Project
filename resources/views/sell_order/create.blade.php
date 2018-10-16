@@ -1,4 +1,5 @@
-
+@extends('theme.default')
+@section('content')
 <h1>Create New </h1>
 <form action="{{ url('/') }}/sell_order" method="POST">
 	{{ csrf_field() }}
@@ -42,5 +43,5 @@
 		<button type="submit">Create</button>
 	</div>
 </form>
-
+@endsection
 

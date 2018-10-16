@@ -20,17 +20,17 @@ class Purchase_order_detailModel
         }
 	 function insert($detail,$quantity,$price,$amount,$id_product,$id_order){
         $sql = "insert into purchase_order_detail (detail,quantity,price,amount,id_product,id_order) 
-                values ('{$detail}','{$quantity}','{$price}',{$amount},{$id_product},{$id_order})";
+                values ('{$detail}','{$quantity}','{$price}','{$amount}',{$id_product},{$id_order})";
         DB::insert($sql, []);
     }
-    function update($detail,$quantity,$amount,$id_orderdetail){
+    function update($detail,$quantity,$price,$amount,$id_product,$id_order,$id_orderdetail){
         $sql = "update purchase_order_detail set 
-                detail = '{$detail}',
-                quantity = '{$quantity}',
-                amount = {$amount},
-                id_product = {$id_product},
-                id_order = {$id_order}, 
-    
+                detail      = '{$detail}',
+                quantity    = '{$quantity}',
+                price       = '{$price}',
+                amount      = '{$amount}',
+                id_product  = {$id_product},
+                id_order    = {$id_order}
                 where id_orderdetail = {$id_orderdetail}";
         DB::update($sql, []);
     }
