@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Sell_order_detailModel;
 use Illuminate\Http\Request;
+use App\ProductModel;
+use App\Sell_orderModel;
 
 class Sell_order_detailController extends Controller
 {
@@ -29,7 +31,17 @@ class Sell_order_detailController extends Controller
      */
     public function create()
     {
-        //
+        $model_sell = new Sell_orderModel();  
+        $table_sell = $model_sell->select();
+
+        $model = new ProductModel();
+        $table_product2 = $model->select();
+
+        $data = ['table_sell' =>$table_sell,
+                 'table_product2' =>$table_product2
+                
+        ];
+        return view('sell_order_detail/create',$data);
     }
 
     /**
@@ -40,7 +52,16 @@ class Sell_order_detailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id_sell     = $request->input('id_sell');
+        $id_product  = $request->input('id_product');
+        $quantity    = $request->input('quantity');
+        $price       = $request->input('price');
+        $amount      = $request->input('amount');
+        
+        $model = new Sell_order_detailModel();
+        $model->insert($id_sell,$id_product,$quantity,$price,$amount);
+
+        return redirect('/sell_order_detail');
     }
 
     /**
@@ -49,9 +70,13 @@ class Sell_order_detailController extends Controller
      * @param  \App\Sell__order_detailModel  $sell__order_detailModel
      * @return \Illuminate\Http\Response
      */
-    public function show(Sell__order_detailModel $sell__order_detailModel)
+    public function show($id)
     {
-        //
+        $model = new Sell_order_detailModel();
+        $table_sell_order_detail = $model->select_id($id);
+        $data = ['table_sell_order_detail'=>$table_sell_order_detail];
+
+        return view('sell_order_detail/show',$data);
     }
 
     /**
@@ -60,9 +85,24 @@ class Sell_order_detailController extends Controller
      * @param  \App\Sell__order_detailModel  $sell__order_detailModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sell__order_detailModel $sell__order_detailModel)
+    public function edit($id)
     {
-        //
+        
+        $model = new Sell_order_detailModel();
+        $table_sell_order_detail = $model->select_id($id);
+       
+        $model_sell = new Sell_orderModel();  
+        $table_sell = $model_sell->select();
+
+        $model = new ProductModel();
+        $table_product2 = $model->select();
+                
+        $data = ['table_sell_order_detail'=>$table_sell_order_detail,
+                 'table_sell' =>$table_sell,
+                 'table_product2' =>$table_product2];
+        
+
+        return view('sell_order_detail/edit',$data);
     }
 
     /**
@@ -72,9 +112,18 @@ class Sell_order_detailController extends Controller
      * @param  \App\Sell__order_detailModel  $sell__order_detailModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sell__order_detailModel $sell__order_detailModel)
-    {
-        //
+    public function update(Request $request,$id_selldetail)
+    {   
+        $id_sell     = $request->input('id_sell');
+        $id_product  = $request->input('id_product');
+        $quantity    = $request->input('quantity');
+        $price       = $request->input('price');
+        $amount      = $request->input('amount');
+        
+        $model = new Sell_order_detailModel();
+        $model->update($id_sell,$id_product,$quantity,$price,$amount,$id_selldetail);
+
+        return redirect('/sell_order_detail');
     }
 
     /**
@@ -83,8 +132,10 @@ class Sell_order_detailController extends Controller
      * @param  \App\Sell__order_detailModel  $sell__order_detailModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sell__order_detailModel $sell__order_detailModel)
+    public function destroy($id_selldetail)
     {
-        //
-    }
+        $model = new Sell_order_detailModel();
+        $model->delete($id_selldetail);
+
+        return redirect('/sell_order_detail');    }
 }

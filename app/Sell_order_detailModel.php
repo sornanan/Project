@@ -21,18 +21,21 @@ class Sell_order_detailModel
         return DB::select($sql, []);
     }
 
-    function insert($quantity, $price, $amount){
-        $sql = "insert into sell_order_detail (quantity, price, amount) 
-                values ( '{$quantity}', '{$price}', '{$amount}')";
+    function insert($id_sell,$id_product,$quantity, $price, $amount){
+        $sql = "insert into sell_order_detail (id_sell,id_product,quantity, price, amount) 
+                values ( {$id_sell},{$id_product},'{$quantity}','{$price}','{$amount}')";
         DB::insert($sql, []);
     }
 
-    function update($name_customer, $address, $email,$telephone, $id_customer){
+    function update($id_sell,$id_product,$quantity, $price, $amount,$id_selldetail){
         $sql = "update sell_order_detail set 
-                name_customer = '{$name_customer}',  
-                address =  '{$address}', email = '{$email}',
-                telephone = {$telephone}
-                where id_customer = {$id_customer}";
+                id_sell = {$id_sell},  
+                id_product = {$id_product}, 
+                quantity = '{$quantity}',
+                price = '{$price}',
+                amount = '{$amount}'
+
+                where id_selldetail = {$id_selldetail}";
         DB::update($sql, []);
     }
 

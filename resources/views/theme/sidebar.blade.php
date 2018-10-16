@@ -26,11 +26,14 @@
 
             </li>
 
-          
+          <li>
+
+                <a href="index"><i class="fa fa-bar-chart-o fa-fw"></i> Home</a>
+                    <li>
 
             <li>
 
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> การขาย<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-files-o fa-fw"></i> การขาย<span class="fa arrow"></span></a>
 
                 <ul class="nav nav-second-level">
 
@@ -83,6 +86,11 @@
                     <li>
 
                         <a href="product">สินค้า</a>
+
+                    </li>
+                    <li>
+
+                        <a href="movement">ความเคลื่นไหวสินค้า</a>
 
                     </li>
             </ul>

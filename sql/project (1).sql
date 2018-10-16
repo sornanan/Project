@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2018 at 07:37 PM
+-- Generation Time: Oct 16, 2018 at 10:20 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -41,8 +41,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id_customer`, `name_customer`, `address`, `email`, `telephone`) VALUES
-(1, 'ghhhhh', 'sad', 'qwqe@gmail.com', '888888'),
-(3, 'หฟก', 'ssasdadqwqqwdqwdqwdqdqwdqwdqwdwdqwd', 'qwqedd@gmail.com', '7777');
+(1, 'นาย ก', '11/11', 'qwqe@gmail.com', '8888886'),
+(2, 'นาย ค', '33/33', 'aa@a.com', '111'),
+(3, 'นาย ข', '22/22', 'aa@a.com', '884456969');
 
 -- --------------------------------------------------------
 
@@ -78,10 +79,13 @@ CREATE TABLE `movement` (
 --
 
 INSERT INTO `movement` (`id_move`, `id_product`, `date`, `inproduct`, `outproduct`, `receive`, `send`, `balance`) VALUES
-(1, 1, '2018-08-19 16:32:04', '2', '2', '2', '30', '0'),
+(1, 1, '2018-08-19 16:32:04', '21', '2', '2', '15', '0'),
 (2, 1, '2018-09-03 17:35:14', '2', '2', '2', '30', '0'),
-(3, 2, '2018-09-25 10:42:47', '50', '50', '50', '50', '0'),
-(4, 2, '2018-09-27 17:09:31', '50', '50', '50', '50', '0');
+(4, 2, '2018-09-27 17:09:31', '50', '50', '50', '50', '0'),
+(5, 2, '2018-10-03 13:33:07', '20', '20', '10', '40', '0'),
+(6, 2, '2018-10-03 13:35:40', '5', '5', '5', '5', '0'),
+(7, 3, '2018-10-03 13:35:58', '50', '50', '10', '25', '0'),
+(8, 2, '2018-10-03 14:00:26', '10', '20', '30', '40', '0');
 
 -- --------------------------------------------------------
 
@@ -99,9 +103,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id_product`, `product`) VALUES
-(1, 'Mouse'),
+(1, 'Mouse1'),
 (2, 'keyboard'),
-(3, 'ดินสอ');
+(3, 'ดินสอ'),
+(4, 'Cpu1');
 
 -- --------------------------------------------------------
 
@@ -123,7 +128,8 @@ CREATE TABLE `purchase_order` (
 
 INSERT INTO `purchase_order` (`id_order`, `date`, `price`, `id_supplier`, `id_user`) VALUES
 (1, '2018-09-03 19:07:52', '20', 1, 1),
-(2, '2018-09-03 19:07:52', '30', 2, 2);
+(2, '2018-09-03 19:07:52', '30', 2, 2),
+(3, '2018-10-04 15:03:07', '500', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -141,6 +147,34 @@ CREATE TABLE `purchase_order_detail` (
   `id_order` int(10) NOT NULL COMMENT 'รหัสซื้อสินค้า'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `purchase_order_detail`
+--
+
+INSERT INTO `purchase_order_detail` (`id_orderdetail`, `detail`, `quantity`, `price`, `amount`, `id_product`, `id_order`) VALUES
+(1, 'กระป๋อง', '20', '500', '10000', 1, 2),
+(2, 'มาม่า', '10', '20', '500', 3, 2),
+(3, 'ไร้สาย', '20', '500', '1000', 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `re_product`
+--
+
+CREATE TABLE `re_product` (
+  `id_return` int(10) NOT NULL,
+  `date` date NOT NULL,
+  `id_customer` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `re_product`
+--
+
+INSERT INTO `re_product` (`id_return`, `date`, `id_customer`) VALUES
+(1, '2540-05-20', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -149,10 +183,9 @@ CREATE TABLE `purchase_order_detail` (
 
 CREATE TABLE `sell_order` (
   `id_sell` int(10) NOT NULL COMMENT 'รหัส',
-  `date` datetime NOT NULL COMMENT 'วันที่ขาย',
+  `date` date NOT NULL COMMENT 'วันที่ขาย',
   `price` varchar(20) NOT NULL COMMENT 'ราคา',
-  `date_sent` datetime NOT NULL COMMENT 'วันที่รับสินค้าคืน',
-  `date_quatation` datetime NOT NULL COMMENT 'วันที่เสนอราคา',
+  `date_quatation` date NOT NULL COMMENT 'วันที่เสนอราคา',
   `id_customer` int(10) NOT NULL COMMENT 'รหัสลูกค้า',
   `id_user` int(10) NOT NULL COMMENT 'รหัสพนักงาน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -161,8 +194,13 @@ CREATE TABLE `sell_order` (
 -- Dumping data for table `sell_order`
 --
 
-INSERT INTO `sell_order` (`id_sell`, `date`, `price`, `date_sent`, `date_quatation`, `id_customer`, `id_user`) VALUES
-(1, '2018-09-04 00:00:00', '6000', '2018-09-05 00:00:00', '2018-09-03 00:00:00', 2, 2);
+INSERT INTO `sell_order` (`id_sell`, `date`, `price`, `date_quatation`, `id_customer`, `id_user`) VALUES
+(1, '2018-09-04', '650', '2018-09-03', 1, 1),
+(2, '2018-10-13', '500', '2018-10-18', 1, 1),
+(3, '2018-10-26', '500', '2018-10-19', 1, 1),
+(4, '2018-10-01', '500', '2018-10-01', 3, 3),
+(5, '2018-10-25', '20', '2018-10-26', 2, 2),
+(6, '2018-10-31', '300', '2018-10-25', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -172,12 +210,19 @@ INSERT INTO `sell_order` (`id_sell`, `date`, `price`, `date_sent`, `date_quatati
 
 CREATE TABLE `sell_order_detail` (
   `id_selldetail` int(10) NOT NULL COMMENT 'รหัส',
+  `id_sell` int(10) NOT NULL COMMENT 'รหัสขายสินค้า',
   `id_product` int(10) NOT NULL COMMENT 'รหัสสินค้า',
   `quantity` varchar(20) NOT NULL COMMENT 'จำนวน',
   `price` varchar(20) NOT NULL COMMENT 'ราคา',
-  `amount` varchar(20) NOT NULL COMMENT 'จำนวนเงิน',
-  `id_sell` int(10) NOT NULL COMMENT 'รหัสขายสินค้า'
+  `amount` varchar(20) NOT NULL COMMENT 'จำนวนเงิน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sell_order_detail`
+--
+
+INSERT INTO `sell_order_detail` (`id_selldetail`, `id_sell`, `id_product`, `quantity`, `price`, `amount`) VALUES
+(1, 1, 1, '10', '500', '5000');
 
 -- --------------------------------------------------------
 
@@ -199,7 +244,9 @@ CREATE TABLE `supplier` (
 
 INSERT INTO `supplier` (`id_supplier`, `name_supplier`, `address`, `email`, `telephone`) VALUES
 (1, 'นาย ก', 'จ.ปทุมธานี', 'aaa@gmail.com', '888888888'),
-(2, 'wanda', 'www', 'dd@g', '11111');
+(2, 'wanda', 'www', 'dd@g', '11111'),
+(3, 'นาย ไก่', '55/55', 'aa@a.com', '111'),
+(4, 'นาย ข', '222', 'qwqe111@gmail.com', '0821234567');
 
 -- --------------------------------------------------------
 
@@ -215,7 +262,7 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `telephone` int(20) NOT NULL
+  `telephone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -223,9 +270,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `telephone`) VALUES
-(1, '1234', 'niking01@hotmail.com', '$2y$10$9SaMcxzYQKUbwdNoihRC.OQGlm1vPT2SWY.2SPQMkqpy0pwZf14Nq', '5SbZRZ8QbYXkdw3CyFozLCPQc1TQJXZMNcETkO9TT7IOtkvveUIxeQ5FtYiH', '2018-06-24 23:10:07', '2018-06-24 23:10:07', 0),
-(2, 'dfg', 'aa@a.com', '$2y$10$IdJkNx4/i7y2I4tKgEDABebYHaaF2Uywi.wYXsCJck0s1m4v0y5Oq', 'p9uJSRds6G1g8gvNJnSciqWsqCrntC9IxfTIMAEG4IncX3uquJThkpKBdObH', '2018-08-22 10:40:44', '2018-08-22 10:40:44', 1),
-(3, 'q', 'a1a@a.com', '$2y$10$x.FlGjKwmNfVVQjtE6B/DumVcD51muXl8aWN7m0/CN8YqSGDF.omi', 'tUj8jPXZ9cIHV9IEsSrdSqvQdEKcipYj01FHP5p0sH9cFTcVZTkjvsi4v6fT', '2018-09-27 10:02:45', '2018-09-27 10:02:45', 0);
+(1, '1234', 'niking01@hotmail.com', '$2y$10$9SaMcxzYQKUbwdNoihRC.OQGlm1vPT2SWY.2SPQMkqpy0pwZf14Nq', '5SbZRZ8QbYXkdw3CyFozLCPQc1TQJXZMNcETkO9TT7IOtkvveUIxeQ5FtYiH', '2018-06-24 23:10:07', '2018-06-24 23:10:07', '0'),
+(2, 'dfg', 'aa@a.com', '$2y$10$IdJkNx4/i7y2I4tKgEDABebYHaaF2Uywi.wYXsCJck0s1m4v0y5Oq', 'p9uJSRds6G1g8gvNJnSciqWsqCrntC9IxfTIMAEG4IncX3uquJThkpKBdObH', '2018-08-22 10:40:44', '2018-08-22 10:40:44', '1'),
+(3, 'q', 'a1a@a.com', '$2y$10$x.FlGjKwmNfVVQjtE6B/DumVcD51muXl8aWN7m0/CN8YqSGDF.omi', 'tUj8jPXZ9cIHV9IEsSrdSqvQdEKcipYj01FHP5p0sH9cFTcVZTkjvsi4v6fT', '2018-09-27 10:02:45', '2018-09-27 10:02:45', '0'),
+(4, 'a', 'aaa@a.com', '$2y$10$GNuK7ILBeosTtexvp3q7ZunhOc8OGc8WKiPUtuELrWPtboVkerB46', 'WpJRaD7WM7uZ5xeH9TaTwDNqJF579Cs4ja1hC7PCXUwO4T3rqOyvfZym2Nbq', '2018-10-16 06:12:31', '2018-10-16 06:12:31', '111'),
+(5, 'w', 'w@w.com', '$2y$10$CXVZVzD7GO0XzrboFMIMRuJwilteqY5/whsmZTh/1IlhjhuIuyM66', 'RLRZy4TtuxjLGlS518G32z3vlllFZXaJRNePvLx6gmcShmjG9hb7br0a1ujf', '2018-10-16 08:34:44', '2018-10-16 08:34:44', '2');
 
 --
 -- Indexes for dumped tables
@@ -266,6 +315,12 @@ ALTER TABLE `purchase_order`
 --
 ALTER TABLE `purchase_order_detail`
   ADD PRIMARY KEY (`id_orderdetail`);
+
+--
+-- Indexes for table `re_product`
+--
+ALTER TABLE `re_product`
+  ADD PRIMARY KEY (`id_return`);
 
 --
 -- Indexes for table `sell_order`
@@ -311,49 +366,55 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `movement`
 --
 ALTER TABLE `movement`
-  MODIFY `id_move` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=5;
+  MODIFY `id_move` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสสินค้า', AUTO_INCREMENT=4;
+  MODIFY `id_product` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสสินค้า', AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `purchase_order`
 --
 ALTER TABLE `purchase_order`
-  MODIFY `id_order` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสซื้อสินค้า', AUTO_INCREMENT=3;
+  MODIFY `id_order` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสซื้อสินค้า', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `purchase_order_detail`
 --
 ALTER TABLE `purchase_order_detail`
-  MODIFY `id_orderdetail` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสรายละอียดซื้อสินค้า';
+  MODIFY `id_orderdetail` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสรายละอียดซื้อสินค้า', AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `re_product`
+--
+ALTER TABLE `re_product`
+  MODIFY `id_return` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sell_order`
 --
 ALTER TABLE `sell_order`
-  MODIFY `id_sell` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=2;
+  MODIFY `id_sell` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sell_order_detail`
 --
 ALTER TABLE `sell_order_detail`
-  MODIFY `id_selldetail` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส';
+  MODIFY `id_selldetail` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสผู้จัดจำหน่าย ', AUTO_INCREMENT=3;
+  MODIFY `id_supplier` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสผู้จัดจำหน่าย ', AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

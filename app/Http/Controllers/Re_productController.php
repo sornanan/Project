@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Re_product;
+use App\Re_productModel;
 use Illuminate\Http\Request;
+use App\CustomerModel;
 
 class Re_productController extends Controller
 {
@@ -12,9 +13,18 @@ class Re_productController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $model = new Re_productModel();
+
+        $q = $request->input('q');
+        $table_re_product = $model->select_search($q);
+
+        $data = [
+            'table_re_product' => $table_re_product,
+            'q' => $q
+        ];
+        return view('re_product/index',$data);
     }
 
     /**
@@ -24,7 +34,11 @@ class Re_productController extends Controller
      */
     public function create()
     {
-        //
+            $model = new CustomerModel();
+            $table_cus2 = $model->select();
+            $data = ['table_cus2' =>$table_cus2];
+
+             return view('re_product/create',$data);
     }
 
     /**
@@ -35,7 +49,13 @@ class Re_productController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $date = $request->input('date');
+        $id_customer = $request->input('id_customer');
+        
+        $model = new Re_productModel();
+        $model->insert($date,$id_customer);
+
+        return redirect('/re_product');
     }
 
     /**
@@ -44,9 +64,13 @@ class Re_productController extends Controller
      * @param  \App\Re_product  $re_product
      * @return \Illuminate\Http\Response
      */
-    public function show(Re_product $re_product)
+    public function show($id)
     {
-        //
+        $model = new Re_productModel();
+        $table_re_product = $model->select_id($id);
+        $data = ['table_re_product'=>$table_re_product];
+
+        return view('re_product/show',$data);
     }
 
     /**
@@ -55,10 +79,21 @@ class Re_productController extends Controller
      * @param  \App\Re_product  $re_product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Re_product $re_product)
-    {
-        //
-    }
+    public function edit($id)
+     {
+                $model = new CustomerModel();
+                $table_cus2 = $model->select();
+
+                 $model = new Re_productModel();
+                 $table_re_product = $model->select();            
+
+                $data = ['table_cus2'       =>$table_cus2,
+                         'table_re_product' =>$table_re_product                   
+                     ];
+              
+                return view('re_product/edit',$data);
+     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -67,9 +102,15 @@ class Re_productController extends Controller
      * @param  \App\Re_product  $re_product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Re_product $re_product)
+    public function update(Request $request, $id_return)
     {
-        //
+        $date        = $request->input('date');
+        $id_customer = $request->input('id_customer');
+        
+        $model = new Re_productModel();
+        $model->update($date,$id_customer,$id_return);
+
+        return redirect('/re_product');
     }
 
     /**
@@ -78,8 +119,11 @@ class Re_productController extends Controller
      * @param  \App\Re_product  $re_product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Re_product $re_product)
+    public function destroy($id_return)
     {
-        //
+        $model = new Re_productModel();
+        $model->delete($id_return);
+
+        return redirect('/re_product');
     }
 }

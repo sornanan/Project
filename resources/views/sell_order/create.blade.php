@@ -6,15 +6,15 @@
 	{{ method_field('POST') }}
 	<div class="line">
 		<strong>วันที่ขาย : </strong>
-		<input type="date" name="date" >
+		<input class="form-control" type="date" name="date" >
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>ราคา : </strong>
-		<input type="text" name="price" >
+		<input class="form-control"  type="text" name="price" >
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>วันที่เสนอราคา : </strong>
-		<input type="date"  name="date_quatation"  >
+		<input class="form-control"  type="date"  name="date_quatation"  >
 	</div>
 
 	<div class="form-group">
@@ -39,8 +39,8 @@
 	</div>
 
 	<div class="line">
-		<a href="{{ url('/') }}/sell_order">back</a>
-		<button type="submit">Create</button>
+		<a class="btn btn-primary pull-right" href="{{ url('/') }}/sell_order">back</a>
+		<button class="btn btn-success " type="submit">Create</button>
 	</div>
 </form>
 @endsection

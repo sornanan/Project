@@ -44,7 +44,8 @@ class MovementController extends Controller
           * @return \Illuminate\Http\Response
           */
          public function store(Request $request)
-    {   $id_product = $request->input('id_product');
+    {   
+        $id_product = $request->input('id_product');
         $inproduct = $request->input('inproduct');
         $outproduct = $request->input('outproduct');
         $receive = $request->input('receive');

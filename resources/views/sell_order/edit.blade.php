@@ -1,20 +1,22 @@
+@extends('theme.default')
+@section('content')
 @forelse($table_sell_order as $row)
 <h1>Edit  : {{ $row->id_sell }}</h1>
 	<form action="{{ url('/') }}/sell_order/{{ $row->id_sell }}" method="POST">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}
 		
-		<div class="line">
+		<div class="form-group">
 			<strong>ชื่อ-นามสกุล : </strong>
-			<input type="text" name="date" value="{{ $row->date }}" >
+			<input class="form-control" type="text" name="date" value="{{ $row->date }}" >
 		</div>
-		<div class="line">
+		<div class="form-group">
 			<strong>ที่อยู่ : </strong>
-			<input type="text" name="price" value="{{ $row->price }}"  >
+			<input class="form-control" type="text" name="price" value="{{ $row->price }}"  >
 		</div>
-		<div class="line">
+		<div class="form-group">
 			<strong>email : </strong>
-			<input type="text" name="date_quatation" value="{{ $row->date_quatation }}"  >
+			<input class="form-control" type="text" name="date_quatation" value="{{ $row->date_quatation }}"  >
 		</div>
 			<div class="form-group">
 		<strong>ลูกค้า: </strong>
@@ -37,11 +39,11 @@
 		</select>
 	</div>
 		<div class="line">
-			<a href="{{ url('/') }}/sell_order">back</a>
-			<button type="submit">Update</button>
+			<a class="btn btn-primary pull-right " href="{{ url('/') }}/sell_order">back</a>
+			<button class="btn btn-success " type="submit">Update</button>
 		</div>
 	</form>
 @empty	
 	<div>This Customer id does not exist</div>
 @endforelse
-
+@endsection

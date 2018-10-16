@@ -18,19 +18,19 @@
 	</div>
 	<div class="form-group">
 		<strong>สินค้าเข้า : </strong>
-		<input class="form-control type="text" name="inproduct" >
+		<input class="form-control" type="text" name="inproduct" >
 	</div>
 	<div class="form-group">
 		<strong>สินค้าออก : </strong>
-		<input class="form-control type="text" name="outproduct" >
+		<input class="form-control" type="text" name="outproduct" >
 	</div>
 	<div class="form-group">
 		<strong>สินค้าค้างรับ : </strong>
-		<input class="form-control type="text" name="receive" >
+		<input class="form-control "type="text" name="receive" >
 	</div>
 	<div class="form-group">
 		<strong>สินค้าค้างส่ง : </strong>
-		<input class="form-control type="text"  name="send">
+		<input class="form-control " type="text"  name="send">
 	</div>
 	<div class="form-group">
 		<a class="btn btn-primary pull-right " href="{{ url('/') }}/movement">back</a>

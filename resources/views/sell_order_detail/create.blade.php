@@ -1,13 +1,29 @@
-@extends('templates.master')
+@extends('theme.default')
 @section('content')
 <h1>Create New Sell_orderdetail</h1>
 <form action="{{ url('/') }}/sell_order_detail" method="POST">
 	{{ csrf_field() }}
 	{{ method_field('POST') }}
 
-	<div class="form-group" >
-		<strong>รายละเอียด </strong>
-		<input class="form-control" type="text" name="detail" >
+	<div class="form-group">
+		<strong>รหัสการขาย: </strong>
+		<select class="form-control" name="id_sell">
+			@foreach($table_sell as $row_sell)
+			<option value="{{ $row_sell->id_sell}}">
+				 {{ $row_sell->id_sell}}
+			</option>
+			@endforeach
+		</select>
+	</div>
+	<div class="form-group">
+		<strong>ชื่อสินค้า : </strong>
+		<select class="form-control" name="id_product">
+			@foreach($table_product2 as $row_product)
+			<option value="{{ $row_product->id_product}}">
+				 {{ $row_product->product}}
+			</option>
+			@endforeach
+		</select>
 	</div>
 	<div class="line">
 		<strong>จำนวน : </strong>
@@ -27,5 +43,5 @@
 		<button type="submit">Create</button>
 	</div>
 </form>
-@endsection()
+@endsection
 

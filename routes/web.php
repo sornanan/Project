@@ -28,4 +28,5 @@ Route::resource('/sell_order_detail','Sell_order_detailController');
 Route::resource('/purchase_order','Purchase_orderController');
 Route::resource('/purchase_order_detail','Purchase_order_detailController');
 Route::resource('/product','ProductController');
+Route::resource('/re_product','Re_productController');
 

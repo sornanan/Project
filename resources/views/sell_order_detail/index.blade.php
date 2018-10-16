@@ -1,4 +1,4 @@
-@extends('templates.master')
+@extends('theme.default')
 
 @section('content')
 <h1>Sell_orderdetail List</h1>
@@ -10,21 +10,22 @@ New Sell_order_detail
 <table class="table table-bordered">
 <tr>
 		<th style="padding-left: 15px;">รหัส</th>
+		<th>รหัสการขาย</th>
 		<th>รหัสสินค้า</th>
 		<th>จำนวน</th>
 		<th>ราคา</th>
 		<th>จำนวนเงิน</th>
-		<th>รหัสขายสินค้า</th>
 		<th>action</th>
 	</tr>
 	@foreach($table_sell_order_detail as $row)
 	<tr>
 		<td>{{ $row->id_selldetail }} </td>
+		<td>{{ $row->id_sell }}</td>
 		<td>{{ $row->id_product }} </td>
 		<td>{{ $row->quantity }}</td>
 		<td>{{ $row->price }}</td>
 		<td>{{ $row->amount }}</td>
-		<td>{{ $row->id_sell }}</td>
+		
 
 		
 		<td>
@@ -34,4 +35,4 @@ New Sell_order_detail
 	</tr>
 	@endforeach
 </table>
-@endsection()
+@endsection

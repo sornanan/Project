@@ -2,11 +2,11 @@
 @section('content')
 <h1>ขายสินค้า List</h1>
 <div class="line">
-	<a href="{{ url('/') }}/sell_order/create">
+	<a class="btn btn-primary" href="{{ url('/') }}/sell_order/create"style="margin-bottom: 15px;">
 New ขายสินค้า
 </a>
 </div>
-<table border=1>
+<table class="table table-bordered">
 <tr>
 		<th>รหัสขาย</th>
 		<th>วันที่ขายสินค้า</th>
@@ -25,8 +25,8 @@ New ขายสินค้า
 		<td>{{ $row->id_customer}}</td>
 		<td>{{ $row->id_user}}</td>
 		<td>
-			<a href="{{ url('/') }}/sell_order/{{ $row->id_sell }}">View</a>
-			<a href="{{ url('/') }}/sell_order/{{ $row->id_sell }}/edit">Edit</a>
+			<a class="btn-success btn-sm" href="{{ url('/') }}/sell_order/{{ $row->id_sell }}">View</a>
+			<a class="btn-success btn-sm" href="{{ url('/') }}/sell_order/{{ $row->id_sell }}/edit">Edit</a>
 		</td>
 	</tr>
 	@endforeach

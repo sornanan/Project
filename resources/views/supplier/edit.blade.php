@@ -1,4 +1,4 @@
-@extends('templates.master')
+@extends('theme.default')
 
 @section('content')
 

@@ -1,40 +1,41 @@
 @extends('theme.default')
 @section('content')
 @forelse($table_sell_order as $row)
-	<h1>Customer : {{ $row->id_customer }} </h1>
-	<div class="line">
+	<h1>Sell : {{ $row->id_sell }} </h1>
+	<div class="form-group">
 		<strong>name : </strong>
-		<span>{{ $row->id_sell }} </span>
+		<span class="form-control">{{ $row->id_sell }} </span>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>date : </strong>
-		<span>{{ $row->date}}</span>
+		<span class="form-control">{{ $row->date}}</span>
 	</div>
 
-	<div class="line">
+	<div class="form-group">
 		<strong>price : </strong>		
-		<span>{{ $row->price }}</span>
+		<span class="form-control">{{ $row->price }}</span>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>date_quatation : </strong>		
-		<span>{{ $row->date_quatation }}</span>
+		<span class="form-control">{{ $row->date_quatation }}</span>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>id_customer : </strong>		
-		<span>{{ $row->id_customer }}</span>
+		<span class="form-control">{{ $row->id_customer }}</span>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>id_user : </strong>		
-		<span>{{ $row->id_user }}</span>
+		<span class="form-control">{{ $row->id_user }}</span>
 	</div>
 	<div class="line">
-		<a href="{{ url('/') }}/sell_order">back</a>
-		<a href="{{ url('/') }}/sell_order/{{ $row->id_sell }}/edit">edit</a>
+		<a class="btn btn-success " href="{{ url('/') }}/sell_order/{{ $row->id_sell }}/edit">edit</a>
+		<a class= "btn btn-primary " href="{{ url('/') }}/sell_order">back</a>
+		
 		<div class="line">
 	<form class="inline" action="{{ url('/') }}/sell_order/{{ $row->id_sell }}" method="POST">
 		{{ csrf_field() }}
 		{{ method_field('DELETE') }}
-		<button type="submit">Delete</button>
+		<button class="btn btn-danger btn-sm pull-right " type="submit">Delete</button>
 	</form>
 </div>
 
