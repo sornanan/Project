@@ -1,6 +1,4 @@
-@extends('theme.default')
 
-@section('content')
 <h1>Sell_orderdetail List</h1>
 <div class="line">
 	<a class="btn btn-primary" href="{{ url('/') }}/sell_order_detail/create"style="margin-bottom: 15px;">
@@ -35,4 +33,3 @@ New Sell_order_detail
 	</tr>
 	@endforeach
 </table>
-@endsection

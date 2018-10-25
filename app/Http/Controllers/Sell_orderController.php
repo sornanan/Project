@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\CustomerModel;
 use App\UserModel;
 
+use App\Sell_order_detailModel;
+use App\ProductModel;
+
 class Sell_orderController extends Controller
 {
     
@@ -89,6 +92,7 @@ class Sell_orderController extends Controller
      */
     public function edit($id)
     {
+        //PART ORDER
         $model = new sell_orderModel();
         $table_sell_order = $model->select_id($id);
 
@@ -99,12 +103,27 @@ class Sell_orderController extends Controller
         $model_user = new UserModel();       
         $table_user = $model_user->select();
 
+        //PART ORDER DETAIL
+        $model = new Sell_order_detailModel();
 
-        $data = ['table_sell_order'=>$table_sell_order,
-                'table_cus' => $table_cus,
-                'table_user' =>$table_user
+        $q = "";
+        //$table_sell_order_detail = $model->select_search($q);
+
+        $table_sell_order_detail = $model->.....($id);
+
+        //DATA
+        $data = [
+            'table_sell_order'=>$table_sell_order,
+            'table_cus' => $table_cus,
+            'table_user' =>$table_user,
+            'table_sell_order_detail' => $table_sell_order_detail,
+            'q' => $q
         ];
         return view('sell_order/edit',$data);
+        ///////////
+
+        
+        //return view('sell_order_detail/index',$data);
     }
 
     /**

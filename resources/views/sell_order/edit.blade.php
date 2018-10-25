@@ -43,6 +43,8 @@
 			<button class="btn btn-success " type="submit">Update</button>
 		</div>
 	</form>
+
+	@include('sell_order_detail/index')
 @empty	
 	<div>This Customer id does not exist</div>
 @endforelse

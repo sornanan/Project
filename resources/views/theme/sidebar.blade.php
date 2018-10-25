@@ -39,18 +39,18 @@
 
                     <li>
 
-                        <a href="sell_order">ขายสินค้า</a>
+                        <a href="{{ url('/') }}/sell_order">ขายสินค้า</a>
 
                     </li>
 
                     <li>
 
-                        <a href="sell_order_detail">รายละเอียดการขาย</a>
+                        <a href="{{ url('/') }}/sell_order_detail">รายละเอียดการขาย</a>
 
                     </li>
                     <li>
 
-                        <a href="re_product">รับสินค้าคืน</a>
+                        <a href="{{ url('/') }}/re_product">รับสินค้าคืน</a>
 
                     </li>
                 </ul>
