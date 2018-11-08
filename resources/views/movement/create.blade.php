@@ -25,14 +25,6 @@
 		<input class="form-control" type="text" name="outproduct" >
 	</div>
 	<div class="form-group">
-		<strong>สินค้าค้างรับ : </strong>
-		<input class="form-control "type="text" name="receive" >
-	</div>
-	<div class="form-group">
-		<strong>สินค้าค้างส่ง : </strong>
-		<input class="form-control " type="text"  name="send">
-	</div>
-	<div class="form-group">
 		<a class="btn btn-primary pull-right " href="{{ url('/') }}/movement">back</a>
 		<button class="btn btn-success type="submit">Create</button>
 	</div>

@@ -23,14 +23,6 @@
 		<span class="form-control">{{ $row->outproduct }}</span>
 	</div>
 	<div class="form-group">
-		<strong>receive : </strong>		
-		<span class="form-control">{{ $row->receive }}</span>
-	</div>
-	<div class="form-group">
-		<strong>send : </strong>		
-		<span class="form-control">{{ $row->send }}</span>
-	</div>
-	<div class="form-group">
 		<strong>balance : </strong>		
 		<span class="form-control">{{ $row->balance }}</span>
 	</div>

@@ -11,7 +11,6 @@
 			<option>
 				โปรดเลือก...
 			</option>
-				
 			@foreach($table_product2 as $row_product)
 				@if($id == $row_product->id_product) 
 				<option value="{{ $row_product->id_product}}" selected>
@@ -31,17 +30,7 @@
 		<div class="form-group">
 			<strong>สินค้าออก : </strong>
 			<input class="form-control"class="form-control"type="text" name="outproduct" value="{{ $row->outproduct }}"  >
-		</div>		
-		<div class="form-group">
-			<strong>ค้างรับ : </strong>
-			<input class="form-control"type="text" name="receive" value="{{ $row->receive }}"  >
-		</div>
-		<div class="form-group">
-			<strong>ค้างส่ง : </strong>
-			<input class="form-control"type="text" name="send" value="{{ $row->send }}"  >
-		</div>
-				
-			
+		</div>			
 		</select>
 	</div>
 		

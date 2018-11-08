@@ -65,13 +65,13 @@
 
                     <li>
 
-                        <a href="purchase_order">ซื้อสินค้า</a>
+                        <a href="{{ url('/') }}/purchase_order">ซื้อสินค้า</a>
 
                     </li>
 
                     <li>
 
-                        <a href="purchase_order_detail">รายละเอียดการซื้อ</a>
+                        <a href="{{ url('/') }}/purchase_order_detail">รายละเอียดการซื้อ</a>
 
                     </li>
                 </ul>
@@ -85,12 +85,12 @@
 
                     <li>
 
-                        <a href="product">สินค้า</a>
+                        <a href="{{ url('/') }}/product">สินค้า</a>
 
                     </li>
                     <li>
 
-                        <a href="movement">ความเคลื่นไหวสินค้า</a>
+                        <a href="{{ url('/') }}/movement">ความเคลื่นไหวสินค้า</a>
 
                     </li>
             </ul>
@@ -103,13 +103,13 @@
 
                     <li>
 
-                        <a href="customer">ข้อมูลลูกค้า</a>
+                        <a href="{{ url('/') }}/customer">ข้อมูลลูกค้า</a>
 
                     </li>
                     
                      <li>
 
-                        <a href="supplier">ข้อมูลผู้จัดจำหน่าย</a>
+                        <a href="{{ url('/') }}/supplier">ข้อมูลผู้จัดจำหน่าย</a>
 
                     </li>
 

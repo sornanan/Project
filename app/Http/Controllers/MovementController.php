@@ -48,11 +48,9 @@ class MovementController extends Controller
         $id_product = $request->input('id_product');
         $inproduct = $request->input('inproduct');
         $outproduct = $request->input('outproduct');
-        $receive = $request->input('receive');
-        $send = $request->input('send');
         $balance = 0;
         $model = new MovementModel();
-        $model->insert($id_product,$inproduct, $outproduct, $receive, $send,$balance);
+        $model->insert($id_product,$inproduct, $outproduct,$balance);
 
         return redirect('/movement');
 
@@ -114,13 +112,11 @@ class MovementController extends Controller
         $id_product = $request->input('id_product');
         $inproduct = $request->input('inproduct');
         $outproduct = $request->input('outproduct');
-        $receive = $request->input('receive');
-        $send = $request->input('send');
         $balance = 0;
 
 
         $model = new MovementModel();
-        $model->update($id_product,$inproduct, $outproduct, $receive, $send,$balance,$id_move);
+        $model->update($id_product,$inproduct, $outproduct, $balance,$id_move);
 
         return redirect('/movement');
 

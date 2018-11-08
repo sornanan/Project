@@ -7,19 +7,19 @@
 		{{ method_field('PUT') }}
 		
 		<div class="form-group">
-			<strong>ชื่อ-นามสกุล : </strong>
-			<input class="form-control" type="text" name="date" value="{{ $row->date }}" >
+			<strong>วันที่ขาย : </strong>
+			<input class="form-control" type="date" name="date" value="{{ $row->date }}" >
 		</div>
 		<div class="form-group">
-			<strong>ที่อยู่ : </strong>
+			<strong>ราคา : </strong>
 			<input class="form-control" type="text" name="price" value="{{ $row->price }}"  >
 		</div>
 		<div class="form-group">
-			<strong>email : </strong>
-			<input class="form-control" type="text" name="date_quatation" value="{{ $row->date_quatation }}"  >
+			<strong>วันที่เสนอราคา : </strong>
+			<input class="form-control" type="date" name="date_quatation" value="{{ $row->date_quatation }}"  >
 		</div>
 			<div class="form-group">
-		<strong>ลูกค้า: </strong>
+		<strong>ชื่อลูกค้า: </strong>
 		<select class="form-control" name="id_customer">
 			@foreach($table_cus as $row_cus)
 			<option value="{{ $row_cus->id_customer}}">
@@ -29,7 +29,7 @@
 		</select>
 	</div>
 <div class="form-group">
-		<strong>พนักงาน: </strong>
+		<strong>ชื่อพนักงาน: </strong>
 		<select class="form-control" name="id_user">
 			@foreach($table_user as $row_user)
 			<option value="{{ $row_user->id}}">

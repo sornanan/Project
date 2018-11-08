@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2018 at 10:20 PM
+-- Generation Time: Nov 07, 2018 at 07:37 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -69,8 +69,6 @@ CREATE TABLE `movement` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'วันที่',
   `inproduct` varchar(10) NOT NULL COMMENT 'สินค้าเข้า',
   `outproduct` varchar(10) NOT NULL COMMENT 'สินค้าออก',
-  `receive` varchar(10) NOT NULL COMMENT 'สินค้าค้างรับ',
-  `send` varchar(10) NOT NULL COMMENT 'สินค้าค้างส่ง',
   `balance` varchar(10) NOT NULL COMMENT 'ยอดคงเหลือสินค้า'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -78,14 +76,15 @@ CREATE TABLE `movement` (
 -- Dumping data for table `movement`
 --
 
-INSERT INTO `movement` (`id_move`, `id_product`, `date`, `inproduct`, `outproduct`, `receive`, `send`, `balance`) VALUES
-(1, 1, '2018-08-19 16:32:04', '21', '2', '2', '15', '0'),
-(2, 1, '2018-09-03 17:35:14', '2', '2', '2', '30', '0'),
-(4, 2, '2018-09-27 17:09:31', '50', '50', '50', '50', '0'),
-(5, 2, '2018-10-03 13:33:07', '20', '20', '10', '40', '0'),
-(6, 2, '2018-10-03 13:35:40', '5', '5', '5', '5', '0'),
-(7, 3, '2018-10-03 13:35:58', '50', '50', '10', '25', '0'),
-(8, 2, '2018-10-03 14:00:26', '10', '20', '30', '40', '0');
+INSERT INTO `movement` (`id_move`, `id_product`, `date`, `inproduct`, `outproduct`, `balance`) VALUES
+(1, 1, '2018-08-19 16:32:04', '21', '2', '0'),
+(2, 1, '2018-09-03 17:35:14', '2', '2', '0'),
+(4, 2, '2018-09-27 17:09:31', '50', '50', '0'),
+(5, 2, '2018-10-03 13:33:07', '20', '20', '0'),
+(6, 2, '2018-10-03 13:35:40', '5', '5', '0'),
+(7, 3, '2018-10-03 13:35:58', '50', '50', '0'),
+(8, 2, '2018-10-03 14:00:26', '10', '20', '0'),
+(9, 3, '2018-11-07 18:32:05', '10', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -195,7 +194,7 @@ CREATE TABLE `sell_order` (
 --
 
 INSERT INTO `sell_order` (`id_sell`, `date`, `price`, `date_quatation`, `id_customer`, `id_user`) VALUES
-(1, '2018-09-04', '650', '2018-09-03', 1, 1),
+(1, '2018-09-12', '650', '2018-09-03', 1, 1),
 (2, '2018-10-13', '500', '2018-10-18', 1, 1),
 (3, '2018-10-26', '500', '2018-10-19', 1, 1),
 (4, '2018-10-01', '500', '2018-10-01', 3, 3),
@@ -366,7 +365,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `movement`
 --
 ALTER TABLE `movement`
-  MODIFY `id_move` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=9;
+  MODIFY `id_move` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -390,7 +389,7 @@ ALTER TABLE `purchase_order_detail`
 -- AUTO_INCREMENT for table `re_product`
 --
 ALTER TABLE `re_product`
-  MODIFY `id_return` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_return` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sell_order`

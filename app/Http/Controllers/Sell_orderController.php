@@ -109,7 +109,7 @@ class Sell_orderController extends Controller
         $q = "";
         //$table_sell_order_detail = $model->select_search($q);
 
-        $table_sell_order_detail = $model->.....($id);
+        $table_sell_order_detail = $model->select();
 
         //DATA
         $data = [

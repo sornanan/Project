@@ -13,8 +13,6 @@ New movement
 		<th>วันที่</th>
 		<th>สินค้าเข้า</th>
 		<th>สินค้าออก</th>
-		<th>ค้างรับสินค้า</th>
-		<th>ค้างส่งสินค้า</th>
 		<th>ยอดคงเหลือสินค้า</th>
 		<th width="120px;">Action</th>
 	</tr>
@@ -25,8 +23,6 @@ New movement
 		<td>{{ $row->date }}</td>
 		<td>{{ $row->inproduct }}</td>
 		<td>{{ $row->outproduct }}</td>
-		<td>{{ $row->receive }}</td>
-		<td>{{ $row->send }}</td>
 		<td>{{ $row->balance }}</td>
 
 		<td>
