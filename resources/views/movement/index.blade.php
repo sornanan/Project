@@ -10,6 +10,7 @@ New movement
 <tr>
 		<th style="padding-left: 15px;">id_move</th>
 		<th>รหัสสินค้า</th>
+		<th>ชื่อสินค้า</th>
 		<th>วันที่</th>
 		<th>สินค้าเข้า</th>
 		<th>สินค้าออก</th>
@@ -20,6 +21,7 @@ New movement
 	<tr>
 		<td style ="padding-left: 40px;">{{ $row->id_move }} </td>
 		<td>{{ $row->id_product }} </td>
+		<td>{{ $row->product}}</td>
 		<td>{{ $row->date }}</td>
 		<td>{{ $row->inproduct }}</td>
 		<td>{{ $row->outproduct }}</td>

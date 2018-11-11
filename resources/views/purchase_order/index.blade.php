@@ -10,18 +10,20 @@ New Purchase
 <tr>
 		<th style="padding-left: 15px;">id_order</th>
 		<th>date</th>
-		<th>price</th>
-		<th>id_supplier</th>
-		<th>id_user</th>
+		<th>รหัสผู้จัดจำหน่าย</th>
+		<th>ชื่อผู้จัดจำหน่าย</th>
+		<th>รหัสลูกค้า</th>
+		<th>ชื่อลูกค้า</th>
 		<th>action</th>
 	</tr>
 	@foreach($table_purchase_order as $row)
 	<tr>
 		<td>{{ $row->id_order }} </td>
 		<td>{{ $row->date }} </td>
-		<td>{{ $row->price }}</td>
 		<td>{{ $row->id_supplier}}</td>
-		<td>{{ $row->id_user }}</td>
+		<td>{{ $row->name_supplier }}</td>
+		<td>{{ $row->id }}</td>
+		<td>{{ $row->name }}</td>
 		<td>
 			<a class="btn-success btn-sm"  href="{{ url('/') }}/purchase_order/{{ $row->id_order }}">View</a>
 			<a class="btn-success btn-sm"  href="{{ url('/') }}/purchase_order/{{ $row->id_order }}/edit">Edit</a>

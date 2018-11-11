@@ -1,7 +1,7 @@
 @extends('theme.default')
 @section('content')
 @forelse($table_sell_order as $row)
-<h1>Edit  : {{ $row->id_sell }}</h1>
+<h1>รหัสการซื้อ  : {{ $row->id_sell }}</h1>
 	<form action="{{ url('/') }}/sell_order/{{ $row->id_sell }}" method="POST">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}
@@ -9,10 +9,6 @@
 		<div class="form-group">
 			<strong>วันที่ขาย : </strong>
 			<input class="form-control" type="date" name="date" value="{{ $row->date }}" >
-		</div>
-		<div class="form-group">
-			<strong>ราคา : </strong>
-			<input class="form-control" type="text" name="price" value="{{ $row->price }}"  >
 		</div>
 		<div class="form-group">
 			<strong>วันที่เสนอราคา : </strong>

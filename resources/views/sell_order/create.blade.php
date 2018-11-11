@@ -9,10 +9,6 @@
 		<input class="form-control" type="date" name="date" >
 	</div>
 	<div class="form-group">
-		<strong>ราคา : </strong>
-		<input class="form-control"  type="text" name="price" >
-	</div>
-	<div class="form-group">
 		<strong>วันที่เสนอราคา : </strong>
 		<input class="form-control"  type="date"  name="date_quatation"  >
 	</div>

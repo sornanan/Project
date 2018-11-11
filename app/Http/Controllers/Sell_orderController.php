@@ -17,8 +17,8 @@ class Sell_orderController extends Controller
     {
        $model = new Sell_orderModel();
 
-        $q = $request->input('q');
-        $table_sell_order = $model->select_search($q);
+        $q = $request->input('id_s');
+        $table_sell_order = $model->show($q);
 
         $data = [
             'table_sell_order' => $table_sell_order,
@@ -105,11 +105,7 @@ class Sell_orderController extends Controller
 
         //PART ORDER DETAIL
         $model = new Sell_order_detailModel();
-
-        $q = "";
-        //$table_sell_order_detail = $model->select_search($q);
-
-        $table_sell_order_detail = $model->select();
+        $table_sell_order_detail = $model->DETAIL($id);
 
         //DATA
         $data = [
@@ -117,13 +113,12 @@ class Sell_orderController extends Controller
             'table_cus' => $table_cus,
             'table_user' =>$table_user,
             'table_sell_order_detail' => $table_sell_order_detail,
-            'q' => $q
+   
         ];
         return view('sell_order/edit',$data);
         ///////////
 
-        
-        //return view('sell_order_detail/index',$data);
+    
     }
 
     /**

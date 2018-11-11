@@ -36,4 +36,11 @@ class Purchase_orderModel
         $sql = "delete from purchase_order where id_order = {$id_order}";
         DB::delete($sql, []);
     }
+    function show($id_p){
+        $sql = "select id_order,date,supplier.id_supplier,supplier.name_supplier,users.id,users.name
+                from purchase_order
+                inner join supplier on purchase_order.id_supplier=supplier.id_supplier
+                inner join users on purchase_order.id_user=users.id";
+                return DB::select($sql ,[]);
+            }
 }

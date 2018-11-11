@@ -13,8 +13,8 @@ class MovementController extends Controller
     {
        $model = new MovementModel();
 
-        $q = $request->input('q');
-        $table_movement = $model->select_search($q);
+        $q = $request->input('$pro');
+        $table_movement = $model->product($q);
 
         $data = [
             'table_movement' => $table_movement,

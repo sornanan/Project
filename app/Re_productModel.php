@@ -45,7 +45,7 @@ class Re_productModel
         $sql = " select id_return,date,re_product.id_customer,customer.name_customer
                 FROM re_product
                 LEFT JOIN customer ON re_product.id_customer=customer.id_customer
-                ORDER BY customer.name_customer";
+                ORDER BY id_return ASC";
         return DB::select($sql, []);
        }
 

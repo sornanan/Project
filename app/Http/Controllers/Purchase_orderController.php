@@ -15,8 +15,8 @@ class Purchase_orderController extends Controller
     public function index(Request $request)
     {
         $model = new Purchase_orderModel();
-        $q = $request->input('q');
-        $table_purchase_order = $model->select_search($q);
+        $q = $request->input('$id_p');
+        $table_purchase_order = $model->show($q);
 
         $data = ['table_purchase_order'=>$table_purchase_order,
         'q'=>$q];

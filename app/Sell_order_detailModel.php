@@ -43,5 +43,12 @@ class Sell_order_detailModel
         $sql = "delete from sell_order_detail where id_selldetail = {$id_selldetail}";
         DB::delete($sql, []);
     }
+   function detail($id){
+        $sql = "select sell_order_detail.id_sell,sell_order.id_sell,amount
+        from sell_order_detail
+        INNER JOIN sell_order ON sell_order_detail.id_sell = sell_order.id_sell
+        where sell_order.id_sell = sell_order_detail.id_sell";
+        return DB::select($sql, []);
+    }
 
 }

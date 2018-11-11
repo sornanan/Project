@@ -10,11 +10,6 @@
 		<strong>date : </strong>
 		<span class="form-control">{{ $row->date}}</span>
 	</div>
-
-	<div class="form-group">
-		<strong>price : </strong>		
-		<span class="form-control">{{ $row->price }}</span>
-	</div>
 	<div class="form-group">
 		<strong>date_quatation : </strong>		
 		<span class="form-control">{{ $row->date_quatation }}</span>

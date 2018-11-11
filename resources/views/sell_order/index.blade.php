@@ -10,20 +10,22 @@ New ขายสินค้า
 <tr>
 		<th>รหัสขาย</th>
 		<th>วันที่ขายสินค้า</th>
-		<th>ราคา</th>
 		<th>วันที่เสนอราคา</th>
 		<th>รหัสลูกค้า</th>
+		<th>ชื่อลูกค้า</th>
 		<th>รหัสพนักงาน</th>
+		<th>ชื่อพนักงาน</th>
 		<th>action</th>
 	</tr>
 	@foreach($table_sell_order as $row)
 	<tr>
 		<td>{{ $row->id_sell }} </td>
 		<td>{{ $row->date }} </td>
-		<td>{{ $row->price }}</td>
 		<td>{{ $row->date_quatation }}</td>
 		<td>{{ $row->id_customer}}</td>
-		<td>{{ $row->id_user}}</td>
+		<td>{{ $row->name_customer}}</td>
+		<td>{{ $row->id}}</td>
+		<td>{{ $row->name}}</td>
 		<td>
 			<a class="btn-success btn-sm" href="{{ url('/') }}/sell_order/{{ $row->id_sell }}">View</a>
 			<a class="btn-success btn-sm" href="{{ url('/') }}/sell_order/{{ $row->id_sell }}/edit">Edit</a>

@@ -13,7 +13,7 @@ class ProductController extends Controller
         $model = new ProductModel();
 
         $q = $request->input('q');
-        $table_product = $model->select_search($q);
+        $table_product = $model->select($q);
 
         $data = ['table_product'=>$table_product,
         'q'=>$q];
