@@ -10,6 +10,7 @@ New
 <tr>	<th>รหัสคืนสินค้า</th>
 		<th>วันที่</th>
 		<th>รหัสลูกค้า</th>
+		<th>ชื่อลูกค้า</th>
 		<th>action</th>
 	</tr>
 	@foreach($table_re_product as $row)
@@ -17,6 +18,7 @@ New
 		<td>{{ $row->id_return }} </td>
 		<td>{{ $row->date }} </td>
 		<td>{{ $row->id_customer }} </td>
+		<td>{{ $row->name_customer}}</td>
 
 		<td>
 			<a class="btn-success btn-sm" href="{{ url('/') }}/re_product/{{ $row->id_return }}">View</a>

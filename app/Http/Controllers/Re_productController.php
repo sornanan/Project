@@ -17,8 +17,8 @@ class Re_productController extends Controller
     {
         $model = new Re_productModel();
 
-        $q = $request->input('q');
-        $table_re_product = $model->select_search($q);
+        $q = $request->input('id_return');
+        $table_re_product = $model->show($q);
 
         $data = [
             'table_re_product' => $table_re_product,
@@ -51,7 +51,6 @@ class Re_productController extends Controller
     {
         $date = $request->input('date');
         $id_customer = $request->input('id_customer');
-        
         $model = new Re_productModel();
         $model->insert($date,$id_customer);
 
@@ -85,7 +84,7 @@ class Re_productController extends Controller
                 $table_cus2 = $model->select();
 
                  $model = new Re_productModel();
-                 $table_re_product = $model->select();            
+                 $table_re_product = $model->select_id($id);            
 
                 $data = ['table_cus2'       =>$table_cus2,
                          'table_re_product' =>$table_re_product                   

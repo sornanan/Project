@@ -35,4 +35,6 @@ class ProductModel
         $sql = "delete from product where id_product = {$id_product}";
         DB::delete($sql, []);
     }
+ 
+        
 }

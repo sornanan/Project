@@ -41,5 +41,12 @@ class Re_productModel
         $sql = "delete from re_product where id_return = {$id_return}";
         DB::delete($sql, []);
     }
+    function show($id_r){
+        $sql = " select id_return,date,re_product.id_customer,customer.name_customer
+                FROM re_product
+                LEFT JOIN customer ON re_product.id_customer=customer.id_customer
+                ORDER BY customer.name_customer";
+        return DB::select($sql, []);
+       }
 
 }
