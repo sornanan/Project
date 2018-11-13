@@ -23,7 +23,7 @@ class CustomerModel
 
     function insert($name_customer, $address, $email,$telephone){
         $sql = "insert into customer (name_customer, address, email,telephone) 
-                values ( '{$name_customer}', '{$address}', '{$email}',{$telephone})";
+                values ( '{$name_customer}', '{$address}', '{$email}','{$telephone}')";
         DB::insert($sql, []);
     }
 
@@ -31,7 +31,7 @@ class CustomerModel
         $sql = "update customer set 
                 name_customer = '{$name_customer}',  
                 address =  '{$address}', email = '{$email}',
-                telephone = {$telephone}
+                telephone = '{$telephone}'
                 where id_customer = {$id_customer}";
         DB::update($sql, []);
     }

@@ -21,7 +21,7 @@
 		</div>
 		<div class="form-group">
 			<strong>เบอร์โทรศัพท์ : </strong>
-			<input class="form-control" type="number" name="telephone" value="{{ $row->telephone }}"  >
+			<input class="form-control" type="text" name="telephone" value="{{ $row->telephone }}"  >
 		</div>
 		<div class="line">
 			<a class="btn btn-primary pull-right" href="{{ url('/') }}/customer">back</a>
