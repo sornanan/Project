@@ -12,11 +12,11 @@ class Sell_order_detailController extends Controller
     
     public function index(Request $request)
     {
-         $model = new Sell_order_detailModel();
+        $model = new Sell_order_detailModel();
 
         $q = $request->input('q');
+    
         $table_sell_order_detail = $model->select_search($q);
-
         $data = [
             'table_sell_order_detail' => $table_sell_order_detail,
             'q' => $q
@@ -87,7 +87,7 @@ class Sell_order_detailController extends Controller
      */
     public function edit($id)
     {
-        
+        print_r($id);
         $model = new Sell_order_detailModel();
         $table_sell_order_detail = $model->select_id($id);
        
@@ -96,7 +96,7 @@ class Sell_order_detailController extends Controller
 
         $model = new ProductModel();
         $table_product2 = $model->select();
-                
+            print_r($table_sell_order_detail);    
         $data = ['table_sell_order_detail'=>$table_sell_order_detail,
                  'table_sell' =>$table_sell,
                  'table_product2' =>$table_product2];

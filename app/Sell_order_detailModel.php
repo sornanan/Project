@@ -44,10 +44,10 @@ class Sell_order_detailModel
         DB::delete($sql, []);
     }
    function detail($id){
-        $sql = "select sell_order_detail.id_sell,sell_order.id_sell,amount
+        $sql = "select sell_order_detail.id_sell,sell_order.id_sell,sell_order_detail.id_selldetail,sell_order_detail.id_product,sell_order_detail.quantity,sell_order_detail.price,amount
         from sell_order_detail
         INNER JOIN sell_order ON sell_order_detail.id_sell = sell_order.id_sell
-        where sell_order.id_sell = sell_order_detail.id_sell";
+        where sell_order_detail.id_sell = {$id}";
         return DB::select($sql, []);
     }
 

@@ -4,7 +4,8 @@
 	<a class="btn btn-primary" href="{{ url('/') }}/sell_order_detail/create"style="margin-bottom: 15px;">
 New Sell_order_detail
 </a>
-</div>
+</div> 
+
 <table class="table table-bordered">
 <tr>
 		<th style="padding-left: 15px;">รหัส</th>

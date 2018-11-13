@@ -35,10 +35,10 @@ class ProductModel
         $sql = "delete from product where id_product = {$id_product}";
         DB::delete($sql, []);
     }
-    function balance($id_b){
+    function balance(){
         $sql = "select distinct product.id_product,product,movement.balance
                 FROM product
-                inner join movement ON product.id_product=movement.id_product
+                left join movement ON product.id_product=movement.id_product
 ";
                 return DB::select($sql, []);
 

@@ -43,7 +43,7 @@ class Sell_orderModel
         $sql = "delete from sell_order where id_sell = {$id_sell}";
         DB::delete($sql, []);
     }
-    function show($id_s){
+    function show(){
         $sql = "select id_sell,date,date_quatation,customer.id_customer,customer.name_customer,users.id,users.name
                 from sell_order
                 inner join customer on sell_order.id_customer=customer.id_customer

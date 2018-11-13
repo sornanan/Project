@@ -18,8 +18,9 @@ class Sell_orderController extends Controller
        $model = new Sell_orderModel();
 
         $q = $request->input('id_s');
-        $table_sell_order = $model->show($q);
 
+        $table_sell_order = $model->show();
+    
         $data = [
             'table_sell_order' => $table_sell_order,
             'q' => $q
@@ -102,10 +103,10 @@ class Sell_orderController extends Controller
     
         $model_user = new UserModel();       
         $table_user = $model_user->select();
-
+        print_r($id);
         //PART ORDER DETAIL
         $model = new Sell_order_detailModel();
-        $table_sell_order_detail = $model->DETAIL($id);
+        $table_sell_order_detail = $model->detail($id);
 
         //DATA
         $data = [

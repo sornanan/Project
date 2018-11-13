@@ -13,7 +13,7 @@ class ProductController extends Controller
         $model = new ProductModel();
 
         $q = $request->input('q');
-        $table_product = $model->select($q);
+        $table_product = $model->balance();
 
         $data = ['table_product'=>$table_product,
         'q'=>$q];

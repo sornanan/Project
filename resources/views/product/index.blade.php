@@ -11,11 +11,13 @@ New Product
 		<th style="padding-left: 15px;">รหัสสินค้า</th>
 		<th>ชื่อสินค้า</th>
 		<th >action</th>
+		<th >action</th>
 	</tr>
 	@foreach($table_product as $row)
 	<tr>
 		<td>{{ $row->id_product }} </td>
 		<td>{{ $row->product }} </td>
+		<td>{{ $row->balance}}</td>
 		<td>
 			<a class="btn-success btn-sm" href="{{ url('/') }}/product/{{ $row->id_product }}">View</a>
 			<a class="btn-success btn-sm" href="{{ url('/') }}/product/{{ $row->id_product }}/edit">Edit</a>
