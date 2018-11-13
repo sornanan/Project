@@ -1,14 +1,15 @@
 @extends('theme.default')
 @section('content')
+<br>
 <h1>ขายสินค้า List</h1>
 <div class="line">
 	<a class="btn btn-primary" href="{{ url('/') }}/sell_order/create"style="margin-bottom: 15px;">
 New ขายสินค้า
 </a>
 </div>
-<table class="table table-bordered">
-<tr>
-		<th>รหัสขาย</th>
+<table class="table table-bordered"  >
+<tr >
+		<th>#</th>
 		<th>วันที่ขายสินค้า</th>
 		<th>วันที่เสนอราคา</th>
 		<th>รหัสลูกค้า</th>
@@ -18,7 +19,7 @@ New ขายสินค้า
 		<th>action</th>
 	</tr>
 	@foreach($table_sell_order as $row)
-	<tr>
+	<tr >
 		<td>{{ $row->id_sell }} </td>
 		<td>{{ $row->date }} </td>
 		<td>{{ $row->date_quatation }}</td>

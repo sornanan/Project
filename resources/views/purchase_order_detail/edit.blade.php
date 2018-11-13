@@ -1,7 +1,7 @@
 @extends('theme.default')
 @section('content')
 @forelse($table_purchase_order_detail as $row)
-<h1>Edit Purchase_or : {{ $row->id_orderdetail }}</h1>
+<h1>เเก้ไขข้อมูล  : {{ $row->id_orderdetail }}</h1>
 	<form action="{{ url('/') }}/purchase_order_detail/{{ $row->id_orderdetail }}" method="POST">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}

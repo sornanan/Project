@@ -59,13 +59,12 @@ class Sell_orderController extends Controller
     public function store(Request $request)
     {
         $date = $request ->input('date');
-        $price = $request ->input('price');
         $date_quatation = $request->input('date_quatation');
         $id_customer = $request ->input('id_customer');
         $id_user = $request ->input('id_user');
         $model = new Sell_orderModel();
         
-        $model ->insert($date,$price,$date_quatation,$id_customer,$id_user);
+        $model ->insert($date,$date_quatation,$id_customer,$id_user);
 
         return redirect('/sell_order');
     }
@@ -103,7 +102,7 @@ class Sell_orderController extends Controller
     
         $model_user = new UserModel();       
         $table_user = $model_user->select();
-        print_r($id);
+
         //PART ORDER DETAIL
         $model = new Sell_order_detailModel();
         $table_sell_order_detail = $model->detail($id);
@@ -132,13 +131,12 @@ class Sell_orderController extends Controller
     public function update(Request $request,$id_sell)
     {
         $date           = $request->input('date');
-        $price          = $request->input('price');
         $date_quatation = $request->input('date_quatation');
         $id_customer    = $request->input('id_customer');
         $id_user        = $request->input('id_user');
         $model = new Sell_orderModel();
 
-        $model->update($date,$price,$date_quatation,$id_customer,$id_user,$id_sell);
+        $model->update($date,$date_quatation,$id_customer,$id_user,$id_sell);
         return redirect('/sell_order');
     }
 

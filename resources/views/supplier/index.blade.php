@@ -1,16 +1,17 @@
 @extends('theme.default')
 @section('content')
-<h1>Supplier List</h1>
+<br>
+<h1>ข้อผู้จัดจำหน่าย</h1>
 <div class="line">
 	<a class="btn btn-primary"  href="{{ url('/') }}/supplier/create"style="margin-bottom: 15px;">
 		
-เพิ่มผู้จัดจำหน่าย
+เพิ่มข้อมูล
 </a>
 </div>
 <br>
 <table class="table table-bordered">
 <tr>
-		<th style="padding-left: 15px;">รหัส</th>
+		<th style="padding-left: 15px;">#</th>
 		<th>ชื่อ</th>
 		<th>ที่อยู่</th>
 		<th>email</th>

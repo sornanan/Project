@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ProductModel;
 use Illuminate\Http\Request;
-
+use App\MovementModel;
 class ProductController extends Controller
 {
     
@@ -18,13 +18,6 @@ class ProductController extends Controller
         $data = ['table_product'=>$table_product,
         'q'=>$q];
         return view('product/index',$data);
-    }
-    public function join(){
-        $sell_order = DB::table('sell_order')
-            ->join('customer', 'sell_order.id_sell', '=', 'customer.id_customer')
-            ->join('users', 'sell_order.id_sell', '=', 'users.id')
-            ->select('id_sell', 'Customer.name_customer','Users.name' )
-            ->get();
     }
     /**
      * Show the form for creating a new resource.
@@ -78,8 +71,12 @@ class ProductController extends Controller
     {
         $model = new ProductModel();
         $table_product = $model->select_id($id);
+
+        $model = new MovementModel();
+        $table_movement = $model->mdetail($id);
         $data = [
-            'table_product' => $table_product
+            'table_product' => $table_product,
+            'table_movement'=>$table_movement
         ];
         return view('product/edit',$data);
     }

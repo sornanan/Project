@@ -1,7 +1,7 @@
 @extends('theme.default')
 @section('content')
 @forelse($table_movement as $row)
-<h1>Edit Movement : {{ $row->id_move }}</h1>
+<h1>เเก้ไขข้อมูล  : {{ $row->id_move }}</h1>
 	<form action="{{ url('/') }}/movement/{{ $row->id_move }}" method="POST">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}

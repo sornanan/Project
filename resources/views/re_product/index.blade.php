@@ -1,13 +1,15 @@
 @extends('theme.default')
 @section('content')
-<h1>Re_product List</h1>
+<br>
+<h1>รับสินค้าคืน</h1>
 <div class="line">
 	<a class="btn btn-primary" href="{{ url('/') }}/re_product/create"style="margin-bottom: 15px;">
-New 
+เพิ่มข้อมูล 
 </a>
 </div>
     <table class="table table-bordered">
-<tr>	<th>รหัสคืนสินค้า</th>
+<tr>	
+		<th>#</th>
 		<th>วันที่</th>
 		<th>รหัสลูกค้า</th>
 		<th>ชื่อลูกค้า</th>

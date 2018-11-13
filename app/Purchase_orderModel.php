@@ -18,14 +18,13 @@ class Purchase_orderModel
         $sql = "select * from purchase_order where id_order like '%{$q}%'";
         return DB::select($sql, []);
     }
-	function insert($price,$id_supplier,$id_user){
-        $sql = "insert into purchase_order (price,id_supplier,id_user) 
-                values ({$price},{$id_supplier},{$id_user})";
+	function insert($id_supplier,$id_user){
+        $sql = "insert into purchase_order (id_supplier,id_user) 
+                values ({$id_supplier},{$id_user})";
         DB::insert($sql, []);
     }
-    function update($price,$id_supplier,$id_user,$id_order){
+    function update($id_supplier,$id_user,$id_order){
         $sql = "update purchase_order set 
-                price = {$price},
                 id_supplier = {$id_supplier},
                 id_user = {$id_user} 
     
@@ -36,11 +35,11 @@ class Purchase_orderModel
         $sql = "delete from purchase_order where id_order = {$id_order}";
         DB::delete($sql, []);
     }
-    function show($id_p){
+    function show(){
         $sql = "select id_order,date,supplier.id_supplier,supplier.name_supplier,users.id,users.name
                 from purchase_order
-                inner join supplier on purchase_order.id_supplier=supplier.id_supplier
-                inner join users on purchase_order.id_user=users.id";
+                left join supplier on purchase_order.id_supplier=supplier.id_supplier
+                left join users on purchase_order.id_user=users.id";
                 return DB::select($sql ,[]);
             }
 }

@@ -3,7 +3,7 @@
 @section('content')
 
 @forelse($table_supplier as $row)
-<h1>Edit Supplier : {{ $row->id_supplier }}</h1>
+<h1>เเก้ไขข้อมูล  : {{ $row->id_supplier }}</h1>
 	<form action="{{ url('/') }}/supplier/{{ $row->id_supplier }}" method="POST">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}

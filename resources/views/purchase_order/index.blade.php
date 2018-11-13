@@ -1,19 +1,20 @@
 @extends('theme.default')
 @section('content')
-<h1>Purchase List</h1>
+<br>
+<h1>รายการซื้อสินค้า</h1>
 <div class="line">
 	<a class="btn btn-primary" href="{{ url('/') }}/purchase_order/create"style="margin-bottom: 15px;">
-New Purchase
+เพิ่มข้อมูล
 </a>
 </div>
 	<table class="table table-bordered">
 <tr>
-		<th style="padding-left: 15px;">id_order</th>
+		<th style="padding-left: 15px;">#</th>
 		<th>date</th>
 		<th>รหัสผู้จัดจำหน่าย</th>
 		<th>ชื่อผู้จัดจำหน่าย</th>
-		<th>รหัสลูกค้า</th>
-		<th>ชื่อลูกค้า</th>
+		<th>รหัสพนักงาน</th>
+		<th>ชื่อพนักงาน</th>
 		<th>action</th>
 	</tr>
 	@foreach($table_purchase_order as $row)

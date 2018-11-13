@@ -40,10 +40,24 @@ class MovementModel
         $sql = "delete from movement where id_move = {$id_move}";
         DB::delete($sql, []);
     }
-    function product($pro){
+    function product(){
         $sql = "select id_move,movement.id_product,product,date,inproduct,outproduct,balance
                 from movement
                 inner join product ON movement.id_product=product.id_product";
                 return DB::select($sql, []);
+    }
+    function mdetail($id){
+        $sql = "select movement.id_move,
+        movement.id_product,
+        product.product,
+        movement.date,
+        movement.inproduct,
+        movement.outproduct,
+        movement.balance,
+        product.id_product
+        from movement
+        left join product on movement.id_product = product.id_product
+        where movement.id_product = {$id}";
+        return DB::select($sql, []);
     }
 }

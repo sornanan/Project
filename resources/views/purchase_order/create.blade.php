@@ -5,12 +5,6 @@
 {{ csrf_field() }}
 	{{ method_field('POST') }}
 
-	
-	<div class="form-group">
-		<strong>Price : </strong>
-		<input class="form-control" type="text" name="price"  >
-	</div>
-	
 
 	<div class="form-group">
 		<strong>ผู้จัดจำหน่าย: </strong>

@@ -1,16 +1,17 @@
 @extends('theme.default')
 @section('content')
-<h1>Product</h1>
+<br>
+<h1>ข้อมูลสินค้า</h1>
 <div class="line">
 	<a class="btn btn-primary" href="{{ url('/') }}/product/create"style="margin-bottom: 15px;">
-New Product
+เพิ่มข้อมูล
 </a>
 </div>
     <table class="table table-bordered">
 <tr>
-		<th style="padding-left: 15px;">รหัสสินค้า</th>
+		<th style="padding-left: 15px;">#</th>
 		<th>ชื่อสินค้า</th>
-		<th >action</th>
+		<th >ยอดคงเหลือสินค้า</th>
 		<th >action</th>
 	</tr>
 	@foreach($table_product as $row)
@@ -23,6 +24,7 @@ New Product
 			<a class="btn-success btn-sm" href="{{ url('/') }}/product/{{ $row->id_product }}/edit">Edit</a>
 		</td>
 	</tr>
+	
 	@endforeach
 </table>
 @endsection()

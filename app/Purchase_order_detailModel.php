@@ -39,4 +39,19 @@ class Purchase_order_detailModel
         $sql = "delete from purchase_order_detail where id_orderdetail = {$id_orderdetail}";
         DB::delete($sql, []);
     }
+    function p_detail($id){
+        $sql = "select 
+        purchase_order_detail.id_orderdetail,
+        purchase_order_detail.detail,
+        purchase_order_detail.quantity,
+        purchase_order_detail.price,
+        purchase_order_detail.amount,
+        purchase_order_detail.id_product,
+        purchase_order_detail.id_order,
+        purchase_order.id_order
+        from purchase_order_detail
+        INNER JOIN purchase_order ON purchase_order_detail.id_order = purchase_order.id_order
+        where purchase_order_detail.id_order = {$id}";
+        return DB::select($sql, []);
+    }
 }

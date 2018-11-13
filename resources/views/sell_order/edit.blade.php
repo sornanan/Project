@@ -1,7 +1,7 @@
 @extends('theme.default')
 @section('content')
 @forelse($table_sell_order as $row)
-<h1>รหัสการซื้อ  : {{ $row->id_sell }}</h1>
+<h1>เเก้ไขข้อมูล   : {{ $row->id_sell }}</h1>
 	<form action="{{ url('/') }}/sell_order/{{ $row->id_sell }}" method="POST">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}

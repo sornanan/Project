@@ -1,7 +1,7 @@
 @extends('theme.default')
 @section('content')
 @forelse($table_product as $row)
-<h1>Edit Product : {{ $row->id_product }}</h1>
+<h1>เเก้ไขข้อมูล  : {{ $row->id_product }}</h1>
 	<form action="{{ url('/') }}/product/{{ $row->id_product}}" method="POST">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}
@@ -15,6 +15,8 @@
 			<button class="btn btn-success " type="submit">Update</button>
 		</div>
 	</form>
+
+	@include('movement/index')
 @empty	
 	<div>This Product id does not exist</div>
 @endforelse

@@ -6,6 +6,7 @@ use App\Purchase_orderModel;
 use Illuminate\Http\Request;
 use App\SupplierModel;
 Use App\UserModel;
+use App\Purchase_order_detailModel;
 
 
 
@@ -16,8 +17,7 @@ class Purchase_orderController extends Controller
     {
         $model = new Purchase_orderModel();
         $q = $request->input('$id_p');
-        $table_purchase_order = $model->show($q);
-
+        $table_purchase_order = $model->show();   
         $data = ['table_purchase_order'=>$table_purchase_order,
         'q'=>$q];
         return view('purchase_order/index',$data);
@@ -52,12 +52,11 @@ class Purchase_orderController extends Controller
      */
     public function store(Request $request)
     {  
-        $price = $request->input('price');
         $id_supplier = $request->input('id_supplier');
         $id_user = $request->input('id_user');
         $model = new Purchase_orderModel();
 
-        $model->insert($price,$id_supplier,$id_user);
+        $model->insert($id_supplier,$id_user);
         
         return redirect('/purchase_order');
     }
@@ -72,7 +71,12 @@ class Purchase_orderController extends Controller
     {
         $model = new Purchase_orderModel();
         $table_purchase_order = $model->select_id($id);
+
+      
+
+
         $data = ['table_purchase_order'=>$table_purchase_order];
+
 
         return view('purchase_order/show',$data);
     }
@@ -85,6 +89,7 @@ class Purchase_orderController extends Controller
      */
     public function edit($id)
     {
+
         $model = new Purchase_orderModel();
         $table_purchase_order = $model->select_id($id);
        
@@ -94,10 +99,14 @@ class Purchase_orderController extends Controller
         $model_user = new UserModel();       
         $table_user = $model_user->select();
 
+        $model = new Purchase_order_detailModel();
+        $table_purchase_order_detail = $model->p_detail($id);
+
 
         $data = ['table_purchase_order'=>$table_purchase_order,
                  'table_sup' =>$table_sup,
-                 'table_user' => $table_user];
+                 'table_user' => $table_user,
+                 'table_purchase_order_detail'=>$table_purchase_order_detail];
         
 
         return view('purchase_order/edit',$data);
@@ -112,13 +121,13 @@ class Purchase_orderController extends Controller
      */
     public function update(Request $request, $id_order)
     {
-        $price          = $request->input('price');
+
         $id_supplier    = $request->input('id_supplier');
         $id_user        = $request->input('id_user');
 
 
         $model = new Purchase_orderModel();
-        $model->update($price,$id_supplier,$id_user,$id_order);
+        $model->update($id_supplier,$id_user,$id_order);
         return redirect('/purchase_order');
     }
 

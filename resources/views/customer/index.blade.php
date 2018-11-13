@@ -1,16 +1,16 @@
 @extends('theme.default')
 @section('content')
-
-<h1>Customer List</h1>
+<br>
+<h1>ข้อมูลลูกค้า</h1>
 <div class="line">
 	<a class="btn btn-primary" href="{{ url('/') }}/customer/create"style="margin-bottom: 15px;">
-New Customer</a>
+เพิ่มข้อมูล</a>
 </div>
     <table class="table table-bordered">
     	
 <tr>
 	  	
-		<th style="padding-left: 15px;">รหัสลูกค้า</th>
+		<th style="padding-left: 15px;">#</th>
 		<th>ชื่อลูกค้า</th>
 		<th>ที่อยู่</th>
 		<th>email</th>

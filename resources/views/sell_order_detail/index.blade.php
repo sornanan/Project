@@ -1,14 +1,14 @@
 
-<h1>Sell_orderdetail List</h1>
+<h1>รายละเอียดการขาย List</h1>
 <div class="line">
 	<a class="btn btn-primary" href="{{ url('/') }}/sell_order_detail/create"style="margin-bottom: 15px;">
-New Sell_order_detail
+เพิ่มข้อมูล
 </a>
 </div> 
 
 <table class="table table-bordered">
 <tr>
-		<th style="padding-left: 15px;">รหัส</th>
+		<th style="padding-left: 15px;">#</th>
 		<th>รหัสการขาย</th>
 		<th>รหัสสินค้า</th>
 		<th>จำนวน</th>

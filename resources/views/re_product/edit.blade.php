@@ -1,7 +1,7 @@
 @extends('theme.default')
 @section('content')
 @forelse($table_re_product as $row)
-<h1>Edit  : {{ $row->id_return }}</h1>
+<h1>เเก้ไขข้อมูล  : {{ $row->id_return }}</h1>
 	<form action="{{ url('/') }}/re_product/{{ $row->id_return }}" method="POST">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}	

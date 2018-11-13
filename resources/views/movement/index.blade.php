@@ -1,14 +1,15 @@
 @extends('theme.default')
 @section('content')
-<h1>Movement List</h1>
+<br>
+<h1>ข้อมูลการซื้อ-ขาย</h1>
 <div class="line">
 	<a class="btn btn-primary" href="{{ url('/') }}/movement/create"style="margin-bottom: 15px;">
-New movement
+เพิ่มข้อมูล
 </a>
  <table class="table table-bordered">
 
 <tr>
-		<th style="padding-left: 15px;">id_move</th>
+		<th style="padding-left: 15px;">#</th>
 		<th>รหัสสินค้า</th>
 		<th>ชื่อสินค้า</th>
 		<th>วันที่</th>

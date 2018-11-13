@@ -2,25 +2,21 @@
 @section('content')
 @forelse($table_purchase_order as $row)
 	<h1>Purchase_order : {{ $row->id_order }} </h1>
-	<div class="line">
-		<strong>id_order : </strong>
-		<span>{{ $row->id_order }} </span>
+	<div class="form-group">
+		<strong >id_order : </strong>
+		<span class="form-control">{{ $row->id_order }} </span>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>date : </strong>
-		<span>{{ $row->date }} </span>
+		<span class="form-control">{{ $row->date }} </span>
 	</div>
-	<div class="line">
-		<strong>price : </strong>
-		<span>{{ $row->price }} </span>
-	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>id_supplier: </strong>
-		<span>{{ $row->id_supplier}}</span>
+		<span class="form-control">{{ $row->id_supplier}}</span>
 	</div>
-	<div class="line">
+	<div class="form-group">
 		<strong>id_user: </strong>
-		<span>{{ $row->id_user}}</span>
+		<span class="form-control">{{ $row->id_user}}</span>
 	</div>
 
 	<div class="line">
@@ -35,7 +31,6 @@
 </div>
 
 	</div>
-
 @empty
 	<div>This Purchas id does not exist</div>
 

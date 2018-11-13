@@ -1,7 +1,7 @@
 @extends('theme.default')
 @section('content')
 @forelse($table_customer as $row)
-<h1>Edit Customer : {{ $row->id_customer }}</h1>
+<h1>เเก้ไขข้อมูล : {{ $row->id_customer }}</h1>
 
 	<form action="{{ url('/') }}/customer/{{ $row->id_customer }}" method="POST">
 		{{ csrf_field() }}

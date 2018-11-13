@@ -2,7 +2,7 @@
 
 @section('content')
 @forelse($table_sell_order_detail as $row)
-<h1>Edit Customer : {{ $row->id_selldetail }}</h1>
+<h1>เเก้ไขข้อมูล  : {{ $row->id_selldetail }}</h1>
 	<form action="{{ url('/') }}/sell_order_detail/{{ $row->id_selldetail }}" method="POST">
 		{{ csrf_field() }}
 		{{ method_field('PUT') }}
@@ -40,8 +40,8 @@
 			<input class="form-control" type="number" name="amount" value="{{ $row->amount }}"  >
 		</div>
 		<div class="line">
-			<a class="btn btn-primary pull-right " href="{{ url('/') }}/sell_order_detail">back</a>
-			<button class="btn btn-success " type="submit">Update</button>
+			<a class="btn btn-primary pull-right " href="{{ url('/') }}/sell_order">back</a>
+			<button class="btn btn-success" type="submit">Update</button>
 		</div>
 	</form>
 @empty	

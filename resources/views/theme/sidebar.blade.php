@@ -42,11 +42,6 @@
                         <a href="{{ url('/') }}/sell_order">ขายสินค้า</a>
 
                     </li>
-
-                    <li>
-
-                        <a href="{{ url('/') }}/sell_order_detail">รายละเอียดการขาย</a>
-
                     </li>
                     <li>
 
@@ -69,11 +64,6 @@
 
                     </li>
 
-                    <li>
-
-                        <a href="{{ url('/') }}/purchase_order_detail">รายละเอียดการซื้อ</a>
-
-                    </li>
                 </ul>
                  </li>
                  

@@ -21,17 +21,16 @@ class Sell_orderModel
         return DB::select($sql, []);
     }
 
-    function insert($date, $price, $date_quatation,$id_customer,$id_user){
-        $sql = "insert into sell_order (date,price,date_quatation,id_customer,id_user) 
-                values ('{$date}','{$price}','{$date_quatation}',{$id_customer},{$id_user})";
+    function insert($date,  $date_quatation,$id_customer,$id_user){
+        $sql = "insert into sell_order (date,date_quatation,id_customer,id_user) 
+                values ('{$date}','{$date_quatation}',{$id_customer},{$id_user})";
                 
         DB::insert($sql, []);
     }
 
-    function update($date, $price, $date_quatation,$id_customer,$id_user,$id_sell){
+    function update($date,  $date_quatation,$id_customer,$id_user,$id_sell){
         $sql = "update sell_order set 
                 date                 = '{$date}',
-                price                = '{$price}',
                 date_quatation       = '{$date_quatation}',
                 id_customer          = {$id_customer},
                 id_user              = {$id_user}
