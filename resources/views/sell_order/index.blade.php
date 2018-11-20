@@ -4,7 +4,7 @@
 <h1>ขายสินค้า List</h1>
 <div class="line">
 	<a class="btn btn-primary" href="{{ url('/') }}/sell_order/create"style="margin-bottom: 15px;">
-New ขายสินค้า
+เพิ่มข้อมูล
 </a>
 </div>
 <table class="table table-bordered"  >

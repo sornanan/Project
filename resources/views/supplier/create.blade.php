@@ -1,7 +1,7 @@
 @extends('theme.default')
 
 @section('content')
-<h1>Create New Supplier</h1>
+<h1>เพิ่มข้อมูล</h1>
 <form action="{{ url('/') }}/supplier" method="POST">
 	{{ csrf_field() }}
 	{{ method_field('POST') }}
