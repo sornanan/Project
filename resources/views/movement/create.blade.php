@@ -17,12 +17,8 @@
 		</select>
 	</div>
 	<div class="form-group">
-		<strong>สินค้าเข้า : </strong>
-		<input class="form-control" type="text" name="inproduct" >
-	</div>
-	<div class="form-group">
-		<strong>สินค้าออก : </strong>
-		<input class="form-control" type="text" name="outproduct" >
+		<strong>จำนวนสินค้า : </strong>
+		<input class="form-control" type="text" name="amount" >
 	</div>
 	<div class="form-group">
 		<a class="btn btn-primary pull-right " href="{{ url('/') }}/movement">back</a>

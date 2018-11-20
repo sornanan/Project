@@ -29,7 +29,6 @@
 
 
 		<td>
-			<a class="btn-success btn-sm" href="{{ url('/') }}/purchase_order_detail/{{ $row->id_orderdetail }}">View</a>
 			<a class="btn-success btn-sm" href="{{ url('/') }}/purchase_order_detail/{{ $row->id_orderdetail }}/edit">Edit</a>
 		</td>
 	</tr>

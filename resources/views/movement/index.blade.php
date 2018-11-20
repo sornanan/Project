@@ -13,8 +13,7 @@
 		<th>รหัสสินค้า</th>
 		<th>ชื่อสินค้า</th>
 		<th>วันที่</th>
-		<th>สินค้าเข้า</th>
-		<th>สินค้าออก</th>
+		<th>จำนวนสินค้า</th>
 		<th>ยอดคงเหลือสินค้า</th>
 		<th width="120px;">Action</th>
 	</tr>
@@ -24,8 +23,7 @@
 		<td>{{ $row->id_product }} </td>
 		<td>{{ $row->product}}</td>
 		<td>{{ $row->date }}</td>
-		<td>{{ $row->inproduct }}</td>
-		<td>{{ $row->outproduct }}</td>
+		<td>{{ $row->amount }}</td>
 		<td>{{ $row->balance }}</td>
 
 		<td>

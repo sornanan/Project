@@ -33,7 +33,7 @@
 		</select>
 	</div>
 	<div class="form-group">
-		<strong>พนักงาน: </strong>
+		<strong>รหัสซื้อสินค้า: </strong>
 		<select class="form-control" name="id_order">
 			@foreach($table_per as $row_per)
 			<option value="{{ $row_per->id_order}}">
@@ -43,7 +43,7 @@
 		</select>
 	</div>
 	<div class="form-group">
-			<a class="btn btn-primary pull-right " href="{{ url('/') }}/purchase_order_detail">back</a>
+			<a class="btn btn-primary pull-right " href="{{ url('/') }}/purchase_order">back</a>
 			<button class="btn btn-success " type="submit">Update</button>
 		</div>
 	</form>

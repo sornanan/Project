@@ -10,7 +10,7 @@
 	<table class="table table-bordered">
 <tr>
 		<th style="padding-left: 15px;">#</th>
-		<th>date</th>
+		<th>วันที่</th>
 		<th>รหัสผู้จัดจำหน่าย</th>
 		<th>ชื่อผู้จัดจำหน่าย</th>
 		<th>รหัสพนักงาน</th>

@@ -1,5 +1,5 @@
 
-<h1>รายละเอียดการขาย List</h1>
+<h1>รายละเอียดการขาย </h1>
 <div class="line">
 	<a class="btn btn-primary" href="{{ url('/') }}/sell_order_detail/create"style="margin-bottom: 15px;">
 เพิ่มข้อมูล

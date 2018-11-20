@@ -20,17 +20,16 @@ class MovementModel
         $sql = "select * from movement where id_move like '%{$q}%'";
         return DB::select($sql, []);
     }
-    function insert($id_product,$inproduct, $outproduct,$balance){
-        $sql = "insert into movement (id_product,inproduct, outproduct, balance) 
-                values ({$id_product} ,'{$inproduct}', '{$outproduct}', '{$balance}')";
+    function insert($id_product,$amount,$balance){
+        $sql = "insert into movement (id_product,amount, balance) 
+                values ({$id_product} ,'{$amount}', '{$balance}')";
         DB::insert($sql, []);
     }
 
-    function update($id_product,$inproduct,$outproduct,$balance,$id_move){
+    function update($id_product,$amount,$balance,$id_move){
         $sql = "update movement set 
                 id_product = {$id_product},
-                inproduct = '{$inproduct}',  
-                outproduct = '{$outproduct}',
+                amount = '{$amount}',  
                 balance = '{$balance}'
                 where id_move = {$id_move}";
         DB::update($sql, []);
@@ -41,7 +40,7 @@ class MovementModel
         DB::delete($sql, []);
     }
     function product(){
-        $sql = "select id_move,movement.id_product,product,date,inproduct,outproduct,balance
+        $sql = "select id_move,movement.id_product,product,date,amount,balance
                 from movement
                 inner join product ON movement.id_product=product.id_product";
                 return DB::select($sql, []);
@@ -51,13 +50,12 @@ class MovementModel
         movement.id_product,
         product.product,
         movement.date,
-        movement.inproduct,
-        movement.outproduct,
+        movement.amount,
         movement.balance,
         product.id_product
         from movement
         left join product on movement.id_product = product.id_product
-        where movement.id_product = {$id}";
+        where movement.id_product = {$id} ";
         return DB::select($sql, []);
     }
 }

@@ -21,6 +21,7 @@ class Purchase_orderModel
 	function insert($id_supplier,$id_user){
         $sql = "insert into purchase_order (id_supplier,id_user) 
                 values ({$id_supplier},{$id_user})";
+
         DB::insert($sql, []);
     }
     function update($id_supplier,$id_user,$id_order){

@@ -57,7 +57,7 @@ class Purchase_order_detailController extends Controller
         $detail     = $request->input('detail');
         $quantity   = $request->input('quantity');
         $price      = $request->input('price');
-        $amount     = $request->input('amount');
+        $amount     = ($quantity * $price);
         $id_product = $request->input('id_product');
         $id_order   = $request->input('id_order');
         $model      = new Purchase_order_detailModel();
@@ -122,13 +122,13 @@ class Purchase_order_detailController extends Controller
         $detail      = $request->input('detail');
         $quantity    = $request->input('quantity');
         $price       = $request->input('price');
-        $amount      = $request->input('amount');
+        $amount      = ($quantity * $price);
         $id_product  = $request->input('id_product');
         $id_order    = $request->input('id_order');
         $model       = new Purchase_order_detailModel();
 
          $model->update($detail,$quantity,$price,$amount,$id_product,$id_order,$id_orderdetail);
-        return redirect('/purchase_order_detail');
+        return redirect('/purchase_order');
     }
 
 
@@ -143,6 +143,6 @@ class Purchase_order_detailController extends Controller
         $model = new Purchase_order_detailModel();
         $model->delete($id_orderdetail);
 
-        return redirect('/purchase_order_detail');
+        return redirect('/purchase_order');
     }
 }

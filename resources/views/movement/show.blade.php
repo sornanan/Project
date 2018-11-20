@@ -15,12 +15,8 @@
 		<span class="form-control">{{ $row->date }}</span>
 	</div>
 	<div class="form-group">
-		<strong>inproduct : </strong>		
-		<span class="form-control">{{ $row->inproduct }}</span>
-	</div>
-	<div class="form-group">
-		<strong>outproduct : </strong>		
-		<span class="form-control">{{ $row->outproduct }}</span>
+		<strong>amount : </strong>		
+		<span class="form-control">{{ $row->amount }}</span>
 	</div>
 	<div class="form-group">
 		<strong>balance : </strong>		
