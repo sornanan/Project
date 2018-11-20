@@ -1,6 +1,6 @@
 @extends('theme.default')
 @section('content')
-<h1>Create New Sell_orderdetail</h1>
+<h1>เพิ่มข้อมูล</h1>
 <form action="{{ url('/') }}/sell_order_detail" method="POST">
 	{{ csrf_field() }}
 	{{ method_field('POST') }}
@@ -33,14 +33,11 @@
 		<strong>ราคา : </strong>
 		<input class="form-control" type="text" name="price">
 	</div>
-	<div class="form-group">
-		<strong>จำนวนเงิน : </strong>
-		<input class="form-control" type="text"  name="amount"  >
-	</div>
+	
 
 	<div class="line">
-		<a href="{{ url('/') }}/sell_order_detail">back</a>
-		<button type="submit">Create</button>
+		<a class="btn btn-primary pull-right " href="{{ url('/') }}/sell_order">back</a>
+		<button class="btn btn-success"  type="submit">Create</button>
 	</div>
 </form>
 @endsection

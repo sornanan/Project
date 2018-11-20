@@ -56,7 +56,7 @@ class Sell_order_detailController extends Controller
         $id_product  = $request->input('id_product');
         $quantity    = $request->input('quantity');
         $price       = $request->input('price');
-        $amount      = $request->input('amount');
+        $amount      = ($quantity * $price);
         
         $model = new Sell_order_detailModel();
         $model->insert($id_sell,$id_product,$quantity,$price,$amount);
@@ -118,12 +118,12 @@ class Sell_order_detailController extends Controller
         $id_product  = $request->input('id_product');
         $quantity    = $request->input('quantity');
         $price       = $request->input('price');
-        $amount      = $request->input('amount');
+        $amount      = ($quantity * $price);
         
         $model = new Sell_order_detailModel();
         $model->update($id_sell,$id_product,$quantity,$price,$amount,$id_selldetail);
 
-        return redirect('/sell_order_detail');
+        return redirect('/sell_order');
     }
 
     /**

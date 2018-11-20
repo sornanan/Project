@@ -35,10 +35,6 @@
 			<strong>ราคา : </strong>
 			<input class="form-control" type="text" name="price" value="{{ $row->price }}"  >
 		</div>
-		<div class="form-group">
-			<strong>จำนวนเงิน : </strong>
-			<input class="form-control" type="number" name="amount" value="{{ $row->amount }}"  >
-		</div>
 		<div class="line">
 			<a class="btn btn-primary pull-right " href="{{ url('/') }}/sell_order">back</a>
 			<button class="btn btn-success" type="submit">Update</button>

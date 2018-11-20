@@ -31,6 +31,7 @@
 			<a class="btn-success btn-sm" href="{{ url('/') }}/sell_order_detail/{{ $row->id_selldetail }}">View</a>
 			<a class="btn-success btn-sm" href="{{ url('/') }}/sell_order_detail/{{ $row->id_selldetail }}/edit">Edit</a>
 		</td>
+		
 	</tr>
 	@endforeach
 </table>
