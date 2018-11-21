@@ -17,7 +17,7 @@ class Sell_order_detailController extends Controller
 
         $q = $request->input('q');
     
-        $table_sell_order_detail = $model->select_search($q);
+        $table_sell_order_detail = $model->join_p();
         $data = [
             'table_sell_order_detail' => $table_sell_order_detail,
             'q' => $q

@@ -50,5 +50,6 @@ class Sell_order_detailModel
         where sell_order_detail.id_sell = {$id}";
         return DB::select($sql, []);
     }
+  
 
 }

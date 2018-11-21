@@ -17,7 +17,7 @@ class Sell_orderController extends Controller
     {
        $model = new Sell_orderModel();
 
-        $q = $request->input('id_s');
+        $q = $request->input('q');
 
         $table_sell_order = $model->show();
     

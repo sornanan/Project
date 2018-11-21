@@ -54,4 +54,8 @@ class Purchase_order_detailModel
         where purchase_order_detail.id_order = {$id}";
         return DB::select($sql, []);
     }
+     function total(){
+            $sql ="select balance
+                    from movement ";
+            }
 }

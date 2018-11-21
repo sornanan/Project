@@ -13,7 +13,6 @@
 		<th>ราคา</th>
 		<th>จำนวนเงิน</th>
 		<th>รหัสสินค้า</th>
-	
 		<th>action</th>
 	</tr>
 	@foreach($table_purchase_order_detail as $row)
@@ -25,6 +24,7 @@
 		<td>{{ $row->price }}</td>
 		<td>{{ $row->amount }}</td>
 		<td>{{ $row->id_product }}</td>
+
 		
 
 

@@ -24,8 +24,8 @@
 		<td>{{ $row->quantity }}</td>
 		<td>{{ $row->price }}</td>
 		<td>{{ $row->amount }}</td>
-		
 
+		
 		
 		<td>
 			<a class="btn-success btn-sm" href="{{ url('/') }}/sell_order_detail/{{ $row->id_selldetail }}">View</a>

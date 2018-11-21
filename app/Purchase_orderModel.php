@@ -43,4 +43,5 @@ class Purchase_orderModel
                 left join users on purchase_order.id_user=users.id";
                 return DB::select($sql ,[]);
             }
+           
 }
