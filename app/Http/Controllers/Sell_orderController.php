@@ -79,7 +79,13 @@ class Sell_orderController extends Controller
     {
         $model = new Sell_orderModel();
         $table_sell_order = $model->select_id($id);
-        $data = ['table_sell_order' =>$table_sell_order];
+
+        $model = new Sell_order_detailModel();
+        $table_sell_order_detail = $model->detail($id);
+
+
+        $data = ['table_sell_order' =>$table_sell_order,
+                 'table_sell_order_detail' => $table_sell_order_detail];
 
         return view('sell_order/show',$data);
     }
@@ -104,15 +110,13 @@ class Sell_orderController extends Controller
         $table_user = $model_user->select();
 
         //PART ORDER DETAIL
-        $model = new Sell_order_detailModel();
-        $table_sell_order_detail = $model->detail($id);
-
+        
         //DATA
         $data = [
             'table_sell_order'=>$table_sell_order,
             'table_cus' => $table_cus,
             'table_user' =>$table_user,
-            'table_sell_order_detail' => $table_sell_order_detail,
+        
    
         ];
         return view('sell_order/edit',$data);

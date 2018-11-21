@@ -53,10 +53,15 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-       $model = new ProductModel();
+        $model = new ProductModel();
         $table_product = $model->select_id($id);
+
+        $model = new MovementModel();
+        $table_movement = $model->mdetail($id);
+
         $data = [
-            'table_product' => $table_product
+            'table_product' => $table_product,
+            'table_movement'=>$table_movement
         ];
         return view('product/show',$data);
     }
@@ -72,11 +77,9 @@ class ProductController extends Controller
         $model = new ProductModel();
         $table_product = $model->select_id($id);
 
-        $model = new MovementModel();
-        $table_movement = $model->mdetail($id);
+       
         $data = [
-            'table_product' => $table_product,
-            'table_movement'=>$table_movement
+            'table_product' => $table_product 
         ];
         return view('product/edit',$data);
     }

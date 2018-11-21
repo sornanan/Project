@@ -30,8 +30,11 @@
 	<div class="line">
 		<a class="btn btn-success " href="{{ url('/') }}/sell_order_detail/{{ $row->id_selldetail }}/edit">edit</a>
 		<a class= "btn btn-primary " href="{{ url('/') }}/sell_order">back</a>
-		<div class="line">
-	
+	<div class="line">
+	<form class="inline" action="{{ url('/') }}/sell_order_detail/{{ $row->id_selldetail }}" method="POST">
+		{{ csrf_field() }}
+		{{ method_field('DELETE') }}
+		<button class="btn btn-danger btn-sm pull-right " type="submit">Delete</button>
 	</form>
 </div>
 

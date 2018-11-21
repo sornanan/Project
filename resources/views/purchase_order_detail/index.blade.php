@@ -29,8 +29,14 @@
 
 
 		<td>
+			<form class="inline" action="{{ url('/') }}/purchase_order_detail/{{ $row->id_orderdetail }}" method="POST">
 			<a class="btn-success btn-sm" href="{{ url('/') }}/purchase_order_detail/{{ $row->id_orderdetail }}/edit">Edit</a>
+		{{ csrf_field() }}
+		{{ method_field('DELETE') }}
+		<button class = "btn btn-danger btn-sm pull-center"type="submit">Delete</button>
 		</td>
 	</tr>
+	
 	@endforeach
+
 </table>

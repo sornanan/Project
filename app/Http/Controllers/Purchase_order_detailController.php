@@ -6,6 +6,7 @@ use App\Purchase_order_detailModel;
 use Illuminate\Http\Request;
 use App\Purchase_orderModel;
 use App\ProductModel;
+Use App\MovementModel;
 class Purchase_order_detailController extends Controller
 {
     /**
@@ -64,7 +65,13 @@ class Purchase_order_detailController extends Controller
 
         $model->insert($detail,$quantity,$price,$amount,$id_product,$id_order);
         
-        return redirect('/purchase_order_detail');
+        $amount_m = $request->input('amount_m');
+        $id_product = $request->input('id_product');
+        $amount_m =($amount_m + $quantity); 
+        $balance =  0;
+        $model = new MovementModel();
+        $model->insert($id_product,$amount_m,$balance);
+        return redirect('/purchase_order');
     }
 
     /**

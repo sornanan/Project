@@ -40,7 +40,7 @@
 		</div>
 	</form>
 
-	@include('sell_order_detail/index')
+	
 @empty	
 	<div>This Customer id does not exist</div>
 @endforelse

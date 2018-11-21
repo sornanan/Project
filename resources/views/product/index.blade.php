@@ -7,12 +7,12 @@
 เพิ่มข้อมูล
 </a>
 </div>
-    <table class="table table-bordered">
-<tr>
-		<th style="padding-left: 15px;">#</th>
+    <table class="table"  >
+<tr class="active" >
+		<th>#</th>
 		<th>ชื่อสินค้า</th>
-		<th >ยอดคงเหลือสินค้า</th>
-		<th >action</th>
+		<th>ยอดคงเหลือสินค้า</th>
+		<th>action</th>
 	</tr>
 	@foreach($table_product as $row)
 	<tr>

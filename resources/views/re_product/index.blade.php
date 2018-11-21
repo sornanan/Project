@@ -7,8 +7,8 @@
 เพิ่มข้อมูล 
 </a>
 </div>
-    <table class="table table-bordered">
-<tr>	
+ <table class="table"  >
+<tr class="active" >	
 		<th>#</th>
 		<th>วันที่</th>
 		<th>รหัสลูกค้า</th>

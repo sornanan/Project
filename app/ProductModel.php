@@ -39,7 +39,8 @@ class ProductModel
         $sql = "select distinct product.id_product,product,movement.balance
                 FROM product
                 left join movement ON product.id_product=movement.id_product
-";
+                order by id_product
+                ";
                 return DB::select($sql, []);
 
     }

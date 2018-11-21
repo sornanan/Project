@@ -16,7 +16,7 @@
 	</div>
 	<div class="form-group">
 		<strong>amount : </strong>		
-		<span class="form-control">{{ $row->amount }}</span>
+		<span class="form-control">{{ $row->amount_m }}</span>
 	</div>
 	<div class="form-group">
 		<strong>balance : </strong>		

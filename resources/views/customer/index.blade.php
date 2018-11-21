@@ -3,24 +3,24 @@
 <br>
 <h1>ข้อมูลลูกค้า</h1>
 <div class="line">
-	<a class="btn btn-primary" href="{{ url('/') }}/customer/create"style="margin-bottom: 15px;">
+	<a class="btn btn-primary btn-block" href="{{ url('/') }}/customer/create"style="margin-bottom: 15px;">
 เพิ่มข้อมูล</a>
 </div>
-    <table class="table table-bordered">
-    	
-<tr>
+<table class="table"  >
+<tr class="active" >
+ 
 	  	
-		<th style="padding-left: 15px;">#</th>
+		<th>#</th>
 		<th>ชื่อลูกค้า</th>
 		<th>ที่อยู่</th>
-		<th>email</th>
+		<th>Email</th>
 		<th>เบอร์โทรศัพท์</th>
-		<th width="120px;">Action</th>
+		<th >Action</th>
 	</tr>
 	
 	@foreach($table_customer as $row)
 	<tr>
-		 <td style ="padding-left: 40px;">{{ $row->id_customer }} </td>
+		<td >{{ $row->id_customer }} </td>
 		<td>{{ $row->name_customer }} </td>
 		<td>{{ $row->address }}</td>
 		<td>{{ $row->email }}</td>

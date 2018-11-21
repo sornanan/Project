@@ -9,14 +9,14 @@
 </a>
 </div>
 <br>
-<table class="table table-bordered">
-<tr>
-		<th style="padding-left: 15px;">#</th>
+<table class="table"  >
+<tr class="active" >
+		<th>#</th>
 		<th>ชื่อ</th>
 		<th>ที่อยู่</th>
 		<th>email</th>
 		<th>เบอร์โทรศัพท์</th>
-		<th width="120px;">action</th>
+		<th>action</th>
 	</tr>
 	@foreach($table_supplier as $row)
 	<tr>

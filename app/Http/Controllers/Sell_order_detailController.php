@@ -6,6 +6,7 @@ use App\Sell_order_detailModel;
 use Illuminate\Http\Request;
 use App\ProductModel;
 use App\Sell_orderModel;
+use App\MovementModel;
 
 class Sell_order_detailController extends Controller
 {
@@ -61,7 +62,13 @@ class Sell_order_detailController extends Controller
         $model = new Sell_order_detailModel();
         $model->insert($id_sell,$id_product,$quantity,$price,$amount);
 
-        return redirect('/sell_order_detail');
+        $amount_m = $request->input('amount_m');
+        $id_product = $request->input('id_product');
+        $amount_m = +1; 
+        $balance =  0;
+        $model = new MovementModel();
+        $model->insert($id_product,$amount_m,$balance);
+        return redirect('/sell_order');
     }
 
     /**
@@ -137,5 +144,5 @@ class Sell_order_detailController extends Controller
         $model = new Sell_order_detailModel();
         $model->delete($id_selldetail);
 
-        return redirect('/sell_order_detail');    }
+        return redirect('/sell_order');    }
 }

@@ -16,7 +16,6 @@
 		</div>
 	</form>
 
-	@include('movement/index')
 @empty	
 	<div>This Product id does not exist</div>
 @endforelse

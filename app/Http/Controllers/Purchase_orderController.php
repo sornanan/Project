@@ -72,10 +72,12 @@ class Purchase_orderController extends Controller
         $model = new Purchase_orderModel();
         $table_purchase_order = $model->select_id($id);
 
-      
+        $model = new Purchase_order_detailModel();
+        $table_purchase_order_detail = $model->p_detail($id);
 
 
-        $data = ['table_purchase_order'=>$table_purchase_order];
+        $data = ['table_purchase_order'=>$table_purchase_order,
+                 'table_purchase_order_detail'=>$table_purchase_order_detail];
 
 
         return view('purchase_order/show',$data);
@@ -99,14 +101,11 @@ class Purchase_orderController extends Controller
         $model_user = new UserModel();       
         $table_user = $model_user->select();
 
-        $model = new Purchase_order_detailModel();
-        $table_purchase_order_detail = $model->p_detail($id);
-
 
         $data = ['table_purchase_order'=>$table_purchase_order,
                  'table_sup' =>$table_sup,
-                 'table_user' => $table_user,
-                 'table_purchase_order_detail'=>$table_purchase_order_detail];
+                 'table_user' => $table_user
+                 ];
         
 
         return view('purchase_order/edit',$data);

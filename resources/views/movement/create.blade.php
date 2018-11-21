@@ -18,7 +18,7 @@
 	</div>
 	<div class="form-group">
 		<strong>จำนวนสินค้า : </strong>
-		<input class="form-control" type="text" name="amount" >
+		<input class="form-control" type="text" name="amount_m" >
 	</div>
 	<div class="form-group">
 		<a class="btn btn-primary pull-right " href="{{ url('/') }}/movement">back</a>

@@ -34,7 +34,7 @@
 			<button class="btn btn-success btn-smtype="submit">Update</button>
 		</div>
 	</form>
-	@include('purchase_order_detail/index')
+	
 @empty	
 	<div>This  id does not exist</div>
 @endforelse

@@ -7,9 +7,9 @@
 เพิ่มข้อมูล
 </a>
 </div>
-	<table class="table table-bordered">
-<tr>
-		<th style="padding-left: 15px;">#</th>
+	<table class="table"  >
+<tr class="active" >
+		<th>#</th>
 		<th>วันที่</th>
 		<th>รหัสผู้จัดจำหน่าย</th>
 		<th>ชื่อผู้จัดจำหน่าย</th>
@@ -26,8 +26,14 @@
 		<td>{{ $row->id }}</td>
 		<td>{{ $row->name }}</td>
 		<td>
+			<form class="inline" action="{{ url('/') }}/purchase_order/{{ $row->id_order }}" method="POST">	
 			<a class="btn-success btn-sm"  href="{{ url('/') }}/purchase_order/{{ $row->id_order }}">View</a>
-			<a class="btn-success btn-sm"  href="{{ url('/') }}/purchase_order/{{ $row->id_order }}/edit">Edit</a>
+			<a class="btn-success btn-sm" href="{{ url('/') }}/purchase_order/{{ $row->id_order }}/edit">Edit</a>
+				
+		{{ csrf_field() }}
+		{{ method_field('DELETE') }}
+		<button class="btn btn-danger btn-sm pull-center " type="submit">Delete</button>
+	</form>
 		</td>
 	</tr>
 	@endforeach

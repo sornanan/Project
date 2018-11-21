@@ -28,7 +28,7 @@
 
           <li>
 
-                <a href="index"><i class="fa fa-bar-chart-o fa-fw"></i> Home</a>
+                <a href="{{ url('/') }}/index"><i class="fa fa-bar-chart-o fa-fw"></i> Home</a>
                     <li>
 
             <li>

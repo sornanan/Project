@@ -40,8 +40,8 @@
 	
 
 	<div class="line">
-		<a href="{{ url('/') }}/purchase_order_detail">back</a>
-		<button type="submit">Create</button>
+		<a class="btn btn-primary pull-right " href="{{ url('/') }}/purchase_order">back</a>
+		<button class="btn btn-success type="submit">Create</button>
 	</div>
 </form>
 @endsection()

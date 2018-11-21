@@ -46,10 +46,10 @@ class MovementController extends Controller
          public function store(Request $request)
     {   
         $id_product = $request->input('id_product');
-        $amount = $request->input('amount');
+        $amount_m = $request->input('amount_m');
         $balance =  0;
         $model = new MovementModel();
-        $model->insert($id_product,$amount,$balance);
+        $model->insert($id_product,$amount_m,$balance);
 
         return redirect('/movement');
 
@@ -109,12 +109,12 @@ class MovementController extends Controller
     {
          
         $id_product = $request->input('id_product');
-        $amount = $request->input('amount');
+        $amount_m = $request->input('amount_m');
         $balance = 0;
 
 
         $model = new MovementModel();
-        $model->update($id_product,$amount, $balance,$id_move);
+        $model->update($id_product,$amount_m, $balance,$id_move);
 
         return redirect('/movement');
 
