@@ -12,6 +12,7 @@
 		<th>จำนวน</th>
 		<th>ราคา</th>
 		<th>จำนวนเงิน</th>
+		<th>จำนวน</th>
 		<th>รหัสสินค้า</th>
 		<th>action</th>
 	</tr>
@@ -22,7 +23,7 @@
 		<td>{{ $row->detail }} </td>
 		<td>{{ $row->quantity }}</td>
 		<td>{{ $row->price }}</td>
-		<td>{{ $row->amount }}</td>
+		<td>{{ $row->amount_m }}</td>
 		<td>{{ $row->id_product }}</td>
 
 		

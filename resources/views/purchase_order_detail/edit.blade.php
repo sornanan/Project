@@ -20,7 +20,7 @@
 		</div>
 		<div class="form-group">
 			<strong>จำนวนเงิน : </strong>
-			<input class="form-control"type="text" name="amount" value="{{ $row->amount }}">
+			<input class="form-control"type="text" name="amount_m" value="{{ $row->amount_m }}">
 		</div>
 			<div class="form-group">
 		<strong>สินค้า: </strong>

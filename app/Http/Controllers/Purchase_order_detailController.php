@@ -73,20 +73,6 @@ class Purchase_order_detailController extends Controller
         $model->insert($id_product,$amount_m,$balance);
         return redirect('/purchase_order');
 
-        $model_b= new Purchase_order_detailModel();       
-        $table_b = $model_b->total();
-        @if($id == $row_balance->balance) 
-                <option value="{{ $row_balance->balance}}" selected>
-                     {{ $row_balance->balance}}
-                </option>
-                @else
-                <option value="{{ $row_balance->balance}}" >
-                     {{ $row_balance->balance}}
-                </option>
-                @endif
-                @endforeach
-           print($table_b)
-        }
     }
 
     /**
