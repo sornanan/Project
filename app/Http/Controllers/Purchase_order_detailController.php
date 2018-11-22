@@ -65,9 +65,7 @@ class Purchase_order_detailController extends Controller
 
         $model->insert($detail,$quantity,$price,$amount,$id_product,$id_order);
         
-        $amount_m = $request->input('amount_m');
-        $id_product = $request->input('id_product');
-        $amount_m =($amount_m + $quantity); 
+        $amount_m =($quantity); 
         $balance =  0;
         $model = new MovementModel();
         $model->insert($id_product,$amount_m,$balance);

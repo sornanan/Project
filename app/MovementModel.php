@@ -42,7 +42,7 @@ class MovementModel
     function product(){
         $sql = "select id_move,movement.id_product,product,date,amount_m,balance
                 from movement
-                inner join product ON movement.id_product=product.id_product";
+                left join product ON movement.id_product=product.id_product";
                 return DB::select($sql, []);
     }
     function mdetail($id){
