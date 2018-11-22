@@ -25,7 +25,7 @@
 			</select>
 		<div class="form-group">
 			<strong>สินค้าเข้า : </strong>
-			<input class="form-control"type="text" name="amount_m" value="{{ $row->amount }}"  >
+			<input class="form-control"type="text" name="amount_m" value="{{ $row->amount_m }}"  >
 		</div>
 		</select>
 	</div>
