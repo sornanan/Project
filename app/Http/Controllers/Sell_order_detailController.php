@@ -30,8 +30,11 @@ class Sell_order_detailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+
+        $id_sell = $request->input('id_sell');
+
         $model_sell = new Sell_orderModel();  
         $table_sell = $model_sell->select();
 
@@ -39,7 +42,8 @@ class Sell_order_detailController extends Controller
         $table_product2 = $model->select();
 
         $data = ['table_sell' =>$table_sell,
-                 'table_product2' =>$table_product2
+                 'table_product2' =>$table_product2,
+                 'id_sell' => $id_sell,
                 
         ];
         return view('sell_order_detail/create',$data);

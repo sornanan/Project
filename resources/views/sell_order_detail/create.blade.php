@@ -5,25 +5,35 @@
 	{{ csrf_field() }}
 	{{ method_field('POST') }}
 
+
 	<div class="form-group">
 		<strong>รหัสการขาย: </strong>
-		<select class="form-control" name="id_sell">
+		<select class="form-control" name="id_sell" id="id_sell" >
 			@foreach($table_sell as $row_sell)
 			<option value="{{ $row_sell->id_sell}}">
 				 {{ $row_sell->id_sell}}
 			</option>
 			@endforeach
 		</select>
+		<script>
+			document.getElementById("id_sell").value = "{{ $id_sell }}";
+		</script>
 	</div>
 	<div class="form-group">
 		<strong>ชื่อสินค้า : </strong>
-		<select class="form-control" name="id_product">
+		<select class="form-control" name="id_product" id="id_product" 
+			onchange="setPrice(this.options[this.selectedIndex].getAttribute('price'));" >
 			@foreach($table_product2 as $row_product)
-			<option value="{{ $row_product->id_product}}">
+			<option value="{{ $row_product->id_product}}" price="{{ 100 }}" >
 				 {{ $row_product->product}}
 			</option>
 			@endforeach
 		</select>
+		<script>
+			function setPrice(price){
+				document.getElementById("price").value = price;
+			}
+		</script>
 	</div>
 	<div class="line">
 		<strong>จำนวน : </strong>
@@ -31,7 +41,7 @@
 	</div>
 	<div class="form-group">
 		<strong>ราคา : </strong>
-		<input class="form-control" type="text" name="price">
+		<input class="form-control" type="text" name="price" id="price">
 	</div>
 	
 

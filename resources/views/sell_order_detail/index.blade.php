@@ -1,7 +1,7 @@
 
 <h1>รายละเอียดการขาย </h1>
 <div class="line">
-	<a class="btn btn-primary" href="{{ url('/') }}/sell_order_detail/create"style="margin-bottom: 15px;">
+	<a class="btn btn-primary" href="{{ url('/') }}/sell_order_detail/create?id_sell={{ $row->id_sell }}"style="margin-bottom: 15px;">
 เพิ่มข้อมูล
 </a>
 </div> 

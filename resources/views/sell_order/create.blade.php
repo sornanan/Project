@@ -6,7 +6,7 @@
 	{{ method_field('POST') }}
 	<div class="line">
 		<strong>วันที่ขาย : </strong>
-		<input class="form-control" type="date" name="date" >
+		<input class="form-control" type="date" name="date" required>
 	</div>
 	<div class="form-group">
 		<strong>วันที่เสนอราคา : </strong>
